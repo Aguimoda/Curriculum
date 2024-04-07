@@ -2,15 +2,17 @@ import React from "react";
 import Modelo1 from "./modelos/Modelo1/Modelo1";
 import Modelo2 from "./modelos/Modelo2/Modelo2";
 import Modelo3 from "./modelos/Modelo3/Modelo3";
-import "../styles/componentes/Curriculum.css";
+import "../styles/componentes/Curriculum.scss";
 
 const Curriculum = ({ currentModel, nextModel, isFlipping, direccion }) => {
+  // Determinar la clase de animación basada en la dirección
   const flipClass = isFlipping
     ? direccion === "adelante"
       ? "flipping-adelante"
       : "flipping-atras"
     : "";
 
+  // Función para obtener el componente del modelo correspondiente
   const getModelComponent = (modelName) => {
     switch (modelName) {
       case "modelo1":
@@ -25,10 +27,15 @@ const Curriculum = ({ currentModel, nextModel, isFlipping, direccion }) => {
   };
 
   return (
-    <div className="flip-container">
-      <div className={`flipper ${flipClass}`}>
-        <div className="front">{getModelComponent(currentModel)}</div>
-        <div className="back">{getModelComponent(nextModel)}</div>
+    <div className="curriculum">
+      <div className="flip-container">
+        <div className={`flipper ${flipClass}`}>
+          {/* Cara frontal mostrando el modelo actual */}
+          <div className="front">{getModelComponent(currentModel)}</div>
+
+          {/* Cara trasera mostrando el siguiente modelo */}
+          <div className="back">{getModelComponent(nextModel)}</div>
+        </div>
       </div>
     </div>
   );

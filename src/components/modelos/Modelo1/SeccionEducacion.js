@@ -1,6 +1,7 @@
 import React from "react";
 
-const EducationSection = ({ institution, period, details }) => {
+const EducationSection = ({ institution, period, details = [] }) => {
+  // El valor predeterminado de details es un array vacío
   return (
     <div className="education-section">
       <h3>{institution}</h3>

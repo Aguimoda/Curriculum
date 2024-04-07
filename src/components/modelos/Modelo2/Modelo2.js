@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/componentes/modelos/Modelo2.css"; // Asegúrate de que el archivo CSS exista
+import "../../../styles/componentes/modelos/Modelo2.scss"; // Asegúrate de que el archivo CSS exista
 import SeccionExperiencia from "./SeccionExperiencia"; // Asegúrate de que la ruta de importación sea correcta
 import SeccionEducacion from "./SeccionEducacion"; // Asegúrate de que la ruta de importación sea correcta
 import curriculumData from "../../../utils/JSON/curriculumData.json";
@@ -30,7 +30,7 @@ const Modelo2 = () => {
   }));
 
   return (
-    <div className="document">
+    <div className="modelo2">
       <header className="header">
         <img src={perfilImage} alt="Daniel Moreno" className="profile-photo" />
         <div>

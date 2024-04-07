@@ -1,0 +1,40 @@
+$buttonGradientStart: #f7f7f7;
+$buttonGradientEnd: #95afc5;
+$hoverGradientStart: #95afc5;
+$hoverGradientEnd: #f7f7f7;
+$shadowColor: rgba(0, 0, 0, 0.16);
+$hoverShadowColor: rgba(0, 0, 0, 0.3);
+.botonCambiar {
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    background-image: linear-gradient(
+      to right,
+      $buttonGradientStart 0%,
+      $buttonGradientEnd 100%
+    );
+    color: white;
+    text-transform: uppercase;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px $shadowColor;
+    outline: none;
+
+    &:hover {
+      background-image: linear-gradient(
+        to left,
+        $hoverGradientStart 0%,
+        $hoverGradientEnd 100%
+      );
+      box-shadow: 0 4px 8px $hoverShadowColor;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

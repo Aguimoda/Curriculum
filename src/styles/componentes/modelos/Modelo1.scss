@@ -1,0 +1,40 @@
+.modelo1 {
+  $fontColor: #333;
+  $backgroundColor: #f4f4f4;
+  $containerBgColor: #fff;
+  $shadowColor: rgba(0, 0, 0, 0.1);
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: $backgroundColor;
+    color: $fontColor;
+  }
+
+  h2,
+  h3 {
+    color: black;
+  }
+
+  nav ul li a {
+    color: $fontColor;
+  }
+
+  .container,
+  footer {
+    padding: 20px;
+    background-color: $containerBgColor;
+    box-shadow: 0 0 10px $shadowColor;
+    margin-top: 20px;
+  }
+
+  .grid {
+    display: grid;
+    grid-gap: 20px;
+  }
+
+  section {
+    background-color: #eaeaea;
+    padding: 15px;
+    border-radius: 8px;
+  }
+}

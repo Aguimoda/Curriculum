@@ -1,0 +1,23 @@
+.homepage {
+  .homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .curriculum-container {
+    margin: 20px;
+    width: 100%;
+  }
+
+  .boton-atras,
+  .botones {
+    margin: 10px;
+  }
+
+  .botones {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+  }
+}

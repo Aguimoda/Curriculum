@@ -1,11 +1,13 @@
 import React from "react";
-import "../styles/componentes/BotonCambiar.css";
+import "../styles/componentes/BotonCambiar.scss";
 
 const BotonCambiar = ({ onFlip, direccion, clase }) => {
   return (
-    <button class={clase} onClick={onFlip}>
-      {direccion === "adelante" ? "Siguiente" : "Anterior"}
-    </button>
+    <div className="botonCambiar">
+      <button className={clase} onClick={onFlip}>
+        {direccion === "adelante" ? "Siguiente" : "Anterior"}
+      </button>
+    </div>
   );
 };
 
