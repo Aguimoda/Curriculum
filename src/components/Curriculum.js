@@ -5,7 +5,6 @@ import Modelo3 from "./modelos/Modelo3/Modelo3";
 import "../styles/componentes/Curriculum.css";
 
 const Curriculum = ({ currentModel, nextModel, isFlipping, direccion }) => {
-  // Aplicar clases adicionales basadas en la dirección del giro
   const flipClass = isFlipping
     ? direccion === "adelante"
       ? "flipping-adelante"
