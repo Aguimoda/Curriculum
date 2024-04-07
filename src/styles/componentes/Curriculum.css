@@ -1,0 +1,91 @@
+.flip-container {
+  perspective: 1000px;
+  width: 60rem; /* Adjust this width as needed */
+  max-width: 100%; /* Ensure it doesn't exceed the width of the viewport */
+  margin: 0 auto; /* Center the container */
+  /* Add any additional styling as needed */
+}
+
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  backface-visibility: hidden; /* Hide the back face of the element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.front,
+.back {
+  /* existing styles */
+  width: 100%; /* Ensure they take up the full width of the flip-container */
+  /* other styles */
+}
+
+.front {
+  z-index: 2; /* Front should be above the back initially */
+}
+
+.back {
+  transform: rotateY(180deg); /* Rotate the back initially */
+  z-index: 1;
+}
+
+/* This class is added when flipping starts */
+.flipping-adelante {
+  transform: rotateY(180deg);
+  transition: transform 0.6s;
+}
+
+.flipping-atras {
+  transform: rotateY(-180deg);
+  transition: transform 0.6s;
+}
+
+/* Manage the visibility during flipping */
+.front.flipping {
+  visibility: hidden; /* Hide the front when flipping */
+  transition: visibility 0s linear 0s; /* Delay hiding the front */
+}
+
+/* When not flipping, keep the front visible */
+.flipper:not(.flipping) .front {
+  visibility: visible;
+}
+
+/* Estilos para la animación de "ida" */
+.flipper.flipping {
+  transform: rotateY(180deg);
+}
+
+/* Retira cualquier transición de "vuelta" */
+.flipper {
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.front {
+  /* Asegúrate de que la cara frontal esté visible cuando no esté volteando */
+  z-index: 2;
+}
+
+.back {
+  /* La cara trasera debe estar girada y oculta inicialmente */
+  transform: rotateY(180deg);
+  z-index: 1;
+}

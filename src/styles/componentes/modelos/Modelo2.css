@@ -1,0 +1,53 @@
+.document {
+  font-family: "Arial", sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  width: 100px; /* Ajusta según el tamaño deseado */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header p {
+  font-size: 14px;
+}
+
+.horizontal-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.bar {
+  height: 2px;
+  background-color: #333;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+}
+
+.column h2 {
+  margin-top: 0;
+}

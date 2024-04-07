@@ -1,0 +1,26 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.curriculum-container {
+  margin: 20px;
+  /* Agrega estilos adicionales aquí */
+}
+
+.model-change-button {
+  margin: 10px;
+  /* Estilos para tu botón */
+}
+
+.boton-atras {
+  position: auto;
+  right: 10px;
+}
+
+.botones {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+}
