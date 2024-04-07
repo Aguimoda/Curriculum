@@ -1,18 +1,13 @@
 import React from "react";
 
-const EducationSection = ({ institution, period, details = [] }) => {
-  // El valor predeterminado de details es un array vacío
+const SeccionEducacion = ({ titulo, institucion, duracion }) => {
   return (
     <div className="education-section">
-      <h3>{institution}</h3>
-      <p className="period">{period}</p>
-      <ul>
-        {details.map((detail, index) => (
-          <li key={index}>{detail}</li>
-        ))}
-      </ul>
+      <h3>{titulo}</h3>
+      <p className="institution">{institucion}</p>
+      <p className="duration">{duracion}</p>
     </div>
   );
 };
 
-export default EducationSection;
+export default SeccionEducacion;

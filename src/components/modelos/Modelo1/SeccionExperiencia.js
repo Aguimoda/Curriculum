@@ -8,9 +8,8 @@ const SeccionExperiencia = ({ puesto, empresa, duracion, labores }) => {
       </h3>
       <p>{duracion}</p>
       <ul>
-        {labores.map((labor, index) => (
-          <li key={index}>{labor}</li>
-        ))}
+        {Array.isArray(labores) &&
+          labores.map((labor, index) => <li key={index}>{labor}</li>)}
       </ul>
     </div>
   );

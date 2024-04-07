@@ -2,43 +2,84 @@ import React from "react";
 import "../../../styles/componentes/modelos/Modelo1.scss";
 import SeccionExperiencia from "./SeccionExperiencia";
 import SeccionEducacion from "./SeccionEducacion";
+import SeccionConocimientos from "./SeccionConocimientos";
+import SeccionIdiomas from "./SeccionIdiomas";
 import curriculumData from "../../../utils/JSON/curriculumData.json";
+import perfilImage from "../../../utils/images/perfil.jpg";
 
 const Modelo1 = () => {
-  const { experiencia, educacion } = curriculumData;
+  const {
+    nombre,
+    descripcion,
+    experiencia,
+    educacion,
+    conocimientos,
+    idiomas,
+  } = curriculumData;
+
+  const experiences = experiencia.map((exp) => ({
+    title: exp.puesto,
+    period: exp.duracion,
+    details: exp.labores,
+  }));
+
+  const educationEntries = educacion.map((edu) => ({
+    title: edu.titulo,
+    institution: edu.institucion,
+    duration: edu.duracion,
+  }));
 
   return (
     <div className="modelo1">
-      {/* ...código anterior... */}
+      <nav class="container-fluid">
+        <ul>
+          <li>
+            <strong>{nombre}</strong>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="#experience">Berufserfahrung</a>
+          </li>
+          <li>
+            <a href="#education">Ausbildung</a>
+          </li>
+          <li>
+            <a href="#skills">Kenntnisse</a>
+          </li>
+          <li>
+            <a href="#languages">Sprachen</a>
+          </li>
+        </ul>
+      </nav>
 
-      <main className="container">
-        <div className="grid">
+      <main class="container">
+        <div class="grid">
           <section id="experience">
             <h2>Berufserfahrung</h2>
-            {experiencia.map((exp, index) => (
-              <SeccionExperiencia
-                key={index}
-                puesto={exp.puesto}
-                empresa={exp.empresa}
-                duracion={exp.duracion}
-                labores={exp.labores}
-              />
-            ))}
+            {experiences &&
+              experiences.map((exp, index) => (
+                <SeccionExperiencia key={index} {...exp} />
+              ))}
           </section>
 
           <section id="education">
             <h2>Ausbildung</h2>
-            {educacion.map((edu, index) => (
-              <SeccionEducacion
-                key={index}
-                titulo={edu.titulo}
-                institucion={edu.institucion}
-                duracion={edu.duracion}
-              />
-            ))}
+            {educacion &&
+              educacion.map((edu, index) => (
+                <SeccionEducacion key={index} {...edu} />
+              ))}
           </section>
 
-          {/* ...código para las secciones de conocimientos e idiomas... */}
+          <section id="skills">
+            <h2>Kenntnisse</h2>
+            <SeccionConocimientos conocimientos={conocimientos} />
+          </section>
+
+          <section id="languages">
+            <h2>Sprachen</h2>
+            <SeccionIdiomas idiomas={idiomas} />
+          </section>
         </div>
       </main>
     </div>
