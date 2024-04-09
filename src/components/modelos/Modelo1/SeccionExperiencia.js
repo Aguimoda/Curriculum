@@ -1,18 +1,17 @@
 import React from "react";
 
-const SeccionExperiencia = ({ puesto, empresa, duracion, labores }) => {
+const ExperienceSection = ({ title, period, details }) => {
   return (
-    <div className="experience-item">
-      <h3>
-        {puesto} - {empresa}
-      </h3>
-      <p>{duracion}</p>
+    <div className="experience-section">
+      <h3>{title}</h3>
+      <p className="period">{period}</p>
       <ul>
-        {Array.isArray(labores) &&
-          labores.map((labor, index) => <li key={index}>{labor}</li>)}
+        {details.map((detail, index) => (
+          <li key={index}>{detail}</li>
+        ))}
       </ul>
     </div>
   );
 };
 
-export default SeccionExperiencia;
+export default ExperienceSection;

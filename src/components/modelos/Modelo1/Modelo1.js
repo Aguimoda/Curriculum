@@ -59,7 +59,12 @@ const Modelo1 = () => {
             <h2>Berufserfahrung</h2>
             {experiences &&
               experiences.map((exp, index) => (
-                <SeccionExperiencia key={index} {...exp} />
+                <SeccionExperiencia
+                  key={index}
+                  title={exp.title}
+                  period={exp.period}
+                  details={exp.details}
+                />
               ))}
           </section>
 

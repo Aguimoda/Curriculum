@@ -1,40 +1,72 @@
+// Estilos para modelo1
 .modelo1 {
-  $fontColor: #333;
-  $backgroundColor: #f4f4f4;
-  $containerBgColor: #fff;
-  $shadowColor: rgba(0, 0, 0, 0.1);
+  // Estableciendo colores y tipografía
+  $font-stack: "Helvetica Neue", Arial, sans-serif;
+  $primary-color: #333;
+  $secondary-color: #555;
+  $background-color: #f9f9f9;
+  $link-color: #0175d8;
 
-  body {
-    font-family: Arial, sans-serif;
-    background-color: $backgroundColor;
-    color: $fontColor;
+  font-family: $font-stack;
+  color: $primary-color;
+  background-color: $background-color;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  // Estilos para la navegación
+  nav.container-fluid {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+
+      li {
+        margin: 0 1rem;
+
+        a {
+          color: $link-color;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 
-  h2,
-  h3 {
-    color: black;
-  }
+  // Estilos para las secciones principales
+  main.container {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
 
-  nav ul li a {
-    color: $fontColor;
-  }
+    section {
+      background: white;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-  .container,
-  footer {
-    padding: 20px;
-    background-color: $containerBgColor;
-    box-shadow: 0 0 10px $shadowColor;
-    margin-top: 20px;
-  }
+      h2 {
+        margin-top: 0;
+      }
 
-  .grid {
-    display: grid;
-    grid-gap: 20px;
-  }
+      // Estilos para los ítems de experiencia, educación, habilidades y lenguajes
+      .experience-item,
+      .education-section,
+      .skills-section,
+      .languages-section {
+        margin-top: 1rem;
 
-  section {
-    background-color: #eaeaea;
-    padding: 15px;
-    border-radius: 8px;
+        h3 {
+          margin-top: 0.5rem;
+        }
+      }
+    }
   }
 }
