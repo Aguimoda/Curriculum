@@ -1,17 +1,11 @@
 import React from "react";
-import EntradaEducacion from "./EntradaEducacion"; // Asegúrate de que la ruta de importación sea correcta
 
-const SeccionEducacion = ({ educationEntries }) => {
+const SeccionEducacion = ({ titulo, institution, duration }) => {
   return (
     <div className="education-section">
-      {educationEntries.map((entry, index) => (
-        <EntradaEducacion
-          key={index}
-          title={entry.title}
-          institution={entry.institution}
-          duration={entry.duration}
-        />
-      ))}
+      <h3>{titulo}</h3>
+      <p>{institution}</p>
+      <p>{duration}</p>
     </div>
   );
 };

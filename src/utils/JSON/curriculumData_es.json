@@ -1,0 +1,53 @@
+{
+  "nombre": "Daniel Moreno",
+  "descripcion": "24 años, estudiante de Front-End con experiencia freelance en desarrollo web y habilidades en varios lenguajes de programación. Soy una persona muy curiosa, analítica y creativa.",
+  "experiencia": [
+    {
+      "puesto": "Vendedor/Especialista IT",
+      "empresa": "",
+      "duracion": "2023 hasta la fecha",
+      "labores": [
+        "Incremento de ventas en un 10% mediante la optimización de la logística de la empresa.",
+        "Experto en gestión de dispositivos (Android, Windows) y servicios en la nube (Google Drive).",
+        "Mejora significativa de la productividad mediante la automatización en servicios en la nube."
+      ]
+    },
+    {
+      "puesto": "Cocinero/Gerente de Tienda",
+      "empresa": "",
+      "duracion": "2019-2021",
+      "labores": [
+        "Gestión de la planificación y ejecución de la producción de helados.",
+        "Supervisión del equipo para un rendimiento óptimo y colaboración.",
+        "Mantenimiento de relaciones con clientes para excelencia en el servicio."
+      ]
+    }
+  ],
+  "educacion": [
+    {
+      "titulo": "Desarrollo Web",
+      "institucion": "CIDEAD",
+      "duracion": "2022-2023"
+    },
+    {
+      "titulo": "Desarrollo de Aplicaciones",
+      "institucion": "Escuela Retamar",
+      "duracion": "2019-2020"
+    },
+    {
+      "titulo": "Ingeniería Informática",
+      "institucion": "Universidad Politécnica de Madrid",
+      "duracion": "2016-2019"
+    }
+  ],
+  "conocimientos": [
+    "CSS",
+    "JavaScript",
+    "HTML",
+    "NODE",
+    "PHP",
+    "WordPress",
+    "React"
+  ],
+  "idiomas": ["Español", "Inglés", "Alemán"]
+}

@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../../styles/componentes/modelos/Modelo1.scss";
 import SeccionExperiencia from "./SeccionExperiencia";
 import SeccionEducacion from "./SeccionEducacion";
 import SeccionConocimientos from "./SeccionConocimientos";
 import SeccionIdiomas from "./SeccionIdiomas";
-import curriculumData from "../../../utils/JSON/curriculumData.json";
 import perfilImage from "../../../utils/images/perfil.jpg";
 
-const Modelo1 = () => {
+const Modelo1 = ({ language }) => {
+  const [curriculumData, setCurriculumData] = useState(null);
+
+  // Cargar datos del currículum según el idioma
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await import(
+          `../../../utils/JSON/curriculumData_${language}.json`
+        );
+        setCurriculumData(data.default);
+      } catch (error) {
+        console.error("Failed to load curriculum data:", error);
+      }
+    };
+
+    loadData();
+  }, [language]);
+
+  if (!curriculumData) {
+    return <div>Loading...</div>; // O algún otro indicador de carga o error.
+  }
+
   const {
     nombre,
     descripcion,
@@ -17,21 +38,9 @@ const Modelo1 = () => {
     idiomas,
   } = curriculumData;
 
-  const experiences = experiencia.map((exp) => ({
-    title: exp.puesto,
-    period: exp.duracion,
-    details: exp.labores,
-  }));
-
-  const educationEntries = educacion.map((edu) => ({
-    title: edu.titulo,
-    institution: edu.institucion,
-    duration: edu.duracion,
-  }));
-
   return (
     <div className="modelo1">
-      <nav class="container-fluid">
+      <nav className="container-fluid">
         <ul>
           <li>
             <strong>{nombre}</strong>
@@ -39,50 +48,48 @@ const Modelo1 = () => {
         </ul>
         <ul>
           <li>
-            <a href="#experience">Berufserfahrung</a>
+            <a href="#experience">Experience</a>
           </li>
           <li>
-            <a href="#education">Ausbildung</a>
+            <a href="#education">Education</a>
           </li>
           <li>
-            <a href="#skills">Kenntnisse</a>
+            <a href="#skills">Skills</a>
           </li>
           <li>
-            <a href="#languages">Sprachen</a>
+            <a href="#languages">Languages</a>
           </li>
         </ul>
       </nav>
 
-      <main class="container">
-        <div class="grid">
+      <main className="container">
+        <div className="grid">
           <section id="experience">
-            <h2>Berufserfahrung</h2>
-            {experiences &&
-              experiences.map((exp, index) => (
-                <SeccionExperiencia
-                  key={index}
-                  title={exp.title}
-                  period={exp.period}
-                  details={exp.details}
-                />
-              ))}
+            <h2>Experience</h2>
+            {experiencia.map((exp, index) => (
+              <SeccionExperiencia
+                key={index}
+                title={exp.puesto}
+                period={exp.duracion}
+                details={exp.labores}
+              />
+            ))}
           </section>
 
           <section id="education">
-            <h2>Ausbildung</h2>
-            {educacion &&
-              educacion.map((edu, index) => (
-                <SeccionEducacion key={index} {...edu} />
-              ))}
+            <h2>Education</h2>
+            {educacion.map((edu, index) => (
+              <SeccionEducacion key={index} {...edu} />
+            ))}
           </section>
 
           <section id="skills">
-            <h2>Kenntnisse</h2>
+            <h2>Skills</h2>
             <SeccionConocimientos conocimientos={conocimientos} />
           </section>
 
           <section id="languages">
-            <h2>Sprachen</h2>
+            <h2>Languages</h2>
             <SeccionIdiomas idiomas={idiomas} />
           </section>
         </div>

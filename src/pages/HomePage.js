@@ -3,13 +3,15 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Curriculum from "../components/Curriculum";
 import BotonCambiar from "../components/BotonCambiar";
+import LanguageSelector from "../components/SelectorLenguaje"; // Nuevo componente para seleccionar el idioma
 import "../styles/paginas/HomePage.scss";
 
 const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const modelos = ["modelo1", "modelo2", "modelo3"];
+  const modelos = ["modelo1", "modelo2", "modelo3", "modeloA"];
   const [isFlipping, setIsFlipping] = useState(false);
   const [direccionActual, setDireccionActual] = useState("adelante");
+  const [language, setLanguage] = useState("en"); // Estado para el idioma actual
 
   const getNextIndex = (index, direccion) => {
     if (direccion === "adelante") {
@@ -36,6 +38,7 @@ const HomePage = () => {
     <div className="homepage">
       <div className="homepage-container">
         <Header />
+        <LanguageSelector setLanguage={setLanguage} /> // Selector de idioma
         <BotonCambiar onFlip={() => handleFlip("atras")} direccion="atras" />
         <BotonCambiar
           onFlip={() => handleFlip("adelante")}
@@ -47,6 +50,7 @@ const HomePage = () => {
             nextModel={nextModel}
             isFlipping={isFlipping}
             direccion={direccionActual}
+            language={language} // Pasar el idioma seleccionado al componente Curriculum
           />
         </div>
         <Footer />
