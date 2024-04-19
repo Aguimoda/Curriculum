@@ -12,6 +12,7 @@ const Modelo2 = ({ language }) => {
     educacion: [],
     conocimientos: [],
     idiomas: [],
+    secciones: [],
   });
 
   useEffect(() => {
@@ -38,6 +39,8 @@ const Modelo2 = ({ language }) => {
     educacion,
     conocimientos,
     idiomas,
+
+    secciones,
   } = curriculumData;
 
   return (
@@ -56,7 +59,7 @@ const Modelo2 = ({ language }) => {
       <main className="content">
         <div className="column">
           <section id="experience">
-            <h2>Berufserfahrung</h2>
+            <h2>{secciones[1]}</h2>
             {experiencia.map((exp, index) => (
               <SeccionExperiencia
                 key={index}
@@ -67,13 +70,13 @@ const Modelo2 = ({ language }) => {
             ))}
           </section>
           <section id="languages">
-            <h2>Sprachen</h2>
+            <h2>{secciones[4]}</h2>
             <p>{idiomas?.join(", ")}</p>
           </section>
         </div>
         <div className="column">
           <section id="education">
-            <h2>Ausbildung</h2>
+            <h2>{secciones[2]}</h2>
             {educacion.map((edu, index) => (
               <SeccionEducacion
                 key={index}
@@ -84,7 +87,7 @@ const Modelo2 = ({ language }) => {
             ))}
           </section>
           <section id="skills">
-            <h2>Kenntnisse</h2>
+            <h2>{secciones[3]}</h2>
             <p>{conocimientos?.join(", ")}</p>
           </section>
         </div>

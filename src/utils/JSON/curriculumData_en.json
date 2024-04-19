@@ -49,5 +49,6 @@
     "WordPress",
     "React"
   ],
-  "idiomas": ["Spanish", "English", "German"]
+  "idiomas": ["Spanish", "English", "German"],
+  "secciones": ["About Me", "Experience", "Education", "Knowledge", "Languages"]
 }

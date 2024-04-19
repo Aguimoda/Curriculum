@@ -49,5 +49,12 @@
     "WordPress",
     "React"
   ],
-  "idiomas": ["Español", "Inglés", "Alemán"]
+  "idiomas": ["Español", "Inglés", "Alemán"],
+  "secciones": [
+    "Descripcion",
+    "Experiencia",
+    "Educacion",
+    "Habilidades",
+    "Idiomas"
+  ]
 }

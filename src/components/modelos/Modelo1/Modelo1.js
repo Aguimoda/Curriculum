@@ -36,6 +36,7 @@ const Modelo1 = ({ language }) => {
     educacion,
     conocimientos,
     idiomas,
+    secciones,
   } = curriculumData;
 
   return (
@@ -48,16 +49,16 @@ const Modelo1 = ({ language }) => {
         </ul>
         <ul>
           <li>
-            <a href="#experience">Experience</a>
+            <a href="#experience">{secciones[1]}</a>
           </li>
           <li>
-            <a href="#education">Education</a>
+            <a href="#education">{secciones[2]}</a>
           </li>
           <li>
-            <a href="#skills">Skills</a>
+            <a href="#skills">{secciones[3]}</a>
           </li>
           <li>
-            <a href="#languages">Languages</a>
+            <a href="#languages">{secciones[4]}</a>
           </li>
         </ul>
       </nav>
@@ -65,7 +66,7 @@ const Modelo1 = ({ language }) => {
       <main className="container">
         <div className="grid">
           <section id="experience">
-            <h2>Experience</h2>
+            <h2>{secciones[1]}</h2>
             {experiencia.map((exp, index) => (
               <SeccionExperiencia
                 key={index}
@@ -77,19 +78,19 @@ const Modelo1 = ({ language }) => {
           </section>
 
           <section id="education">
-            <h2>Education</h2>
+            <h2>{secciones[2]}</h2>
             {educacion.map((edu, index) => (
               <SeccionEducacion key={index} {...edu} />
             ))}
           </section>
 
           <section id="skills">
-            <h2>Skills</h2>
+            <h2>{secciones[3]}</h2>
             <SeccionConocimientos conocimientos={conocimientos} />
           </section>
 
           <section id="languages">
-            <h2>Languages</h2>
+            <h2>{secciones[4]}</h2>
             <SeccionIdiomas idiomas={idiomas} />
           </section>
         </div>
