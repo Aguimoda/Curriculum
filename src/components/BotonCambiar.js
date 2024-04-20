@@ -5,7 +5,7 @@ const BotonCambiar = ({ onFlip, direccion, clase }) => {
   return (
     <div className="botonCambiar">
       <button className={clase} onClick={onFlip}>
-        {direccion === "adelante" ? "Siguiente" : "Anterior"}
+        {direccion === "adelante" ? "🡺" : "🡸"}
       </button>
     </div>
   );

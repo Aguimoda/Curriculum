@@ -13,6 +13,7 @@ const ModeloArtistico = ({ language }) => {
     secciones: [],
   });
   const [activeSection, setActiveSection] = useState(null);
+  const [isVertical, setIsVertical] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
@@ -27,12 +28,11 @@ const ModeloArtistico = ({ language }) => {
           language,
           error
         );
-        // Manejo de error, opcionalmente resetear datos o mostrar mensaje de error
       }
     };
 
     loadData();
-  }, [language]); // Dependencia en `language` para recargar datos al cambiar el idioma
+  }, [language]);
 
   const {
     experiencia,
@@ -65,22 +65,34 @@ const ModeloArtistico = ({ language }) => {
   ];
 
   const handleClick = (id) => {
-    setActiveSection(id === activeSection ? null : id);
+    if (isVertical == true) {
+      if (activeSection == id) {
+        setIsVertical(false);
+        setActiveSection(null);
+      }
+    } else {
+      setActiveSection(id);
+      setIsVertical(true);
+    }
+    // Activa la disposición vertical para todos los círculos
   };
 
   return (
     <div className="modelo-artistico">
       <h1>{nombre}</h1>
-      <div className="circles-container">
+      <div className={`circles-container ${isVertical ? "vertical" : ""}`}>
         {sections.map((section) => (
           <Circulo
             key={section.id}
             title={section.title}
             isActive={section.id === activeSection}
+            isLeft={section.id !== activeSection}
+            stayInPlace={section.id === activeSection}
             onClick={() => handleClick(section.id)}
           />
         ))}
       </div>
+
       {activeSection && (
         <div className="section-content">
           {sections.find((section) => section.id === activeSection).content}

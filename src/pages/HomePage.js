@@ -38,12 +38,19 @@ const HomePage = () => {
     <div className="homepage">
       <div className="homepage-container">
         <Header />
-        <LanguageSelector setLanguage={setLanguage} /> // Selector de idioma
-        <BotonCambiar onFlip={() => handleFlip("atras")} direccion="atras" />
-        <BotonCambiar
-          onFlip={() => handleFlip("adelante")}
-          direccion="adelante"
-        />
+        <div className="controls">
+          <LanguageSelector setLanguage={setLanguage} />
+          <div className="desplazamiento">
+            <BotonCambiar
+              onFlip={() => handleFlip("atras")}
+              direccion="atras"
+            />
+            <BotonCambiar
+              onFlip={() => handleFlip("adelante")}
+              direccion="adelante"
+            />
+          </div>
+        </div>
         <div className="curriculum-container">
           <Curriculum
             currentModel={modelos[currentIndex]}

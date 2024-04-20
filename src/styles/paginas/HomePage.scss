@@ -15,9 +15,19 @@
     margin: 10px;
   }
 
-  .botones {
+  .controls {
+    width: 90%;
+    padding-left: 20px;
+
     position: absolute;
-    right: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     top: 20px;
+    z-index: 6;
+  }
+  .desplazamiento {
+    display: flex;
+    flex-direction: row;
   }
 }

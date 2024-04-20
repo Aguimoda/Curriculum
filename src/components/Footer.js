@@ -3,7 +3,11 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      {/* Agrega tu contenido de pie de página aquí, como derechos de autor o enlaces */}
+      {
+        <a href="https://www.flaticon.com/free-icons/spain" title="spain icons">
+          Spain icons created by Freepik - Flaticon
+        </a>
+      }
     </footer>
   );
 };
