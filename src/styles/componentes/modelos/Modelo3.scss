@@ -1,84 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
-
-$modelo3-colors: (
-  "background": #f3f0d7,
-  "header": #e1d5c0,
-  "section-bg": #a8dadc,
-  "section-title": #457b9d,
-  "text": #1d3557,
-  "accent": #f4a261,
-  "hover": #2a9d8f,
-);
-
-@mixin transformation-mixins {
-  transform: rotate(2deg);
-  transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: rotate(-2deg);
-  }
-}
-
+/* Modelo3.scss */
 .modelo3 {
   font-family: "Montserrat", sans-serif;
-  background-color: map-get($modelo3-colors, "background");
+  background-color: #f3f0d7;
   padding: 20px;
 
   .content-container {
-    @include transformation-mixins;
     max-width: 800px;
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   .header {
-    background-color: map-get($modelo3-colors, "header");
+    background-color: #e1d5c0;
     text-align: center;
     padding: 15px;
     border-radius: 15px;
-    transform: rotate(-5deg);
-
-    h1 {
-      color: map-get($modelo3-colors, "text");
-      font-weight: 700;
-      font-size: 2.2rem;
-    }
-
-    p {
-      color: map-get($modelo3-colors, "accent");
-      font-size: 1.2rem;
-    }
   }
 
-  section {
+  .section {
     margin-top: 25px;
-    background-color: map-get($modelo3-colors, "section-bg");
+    background-color: #a8dadc;
     border-radius: 15px;
     padding: 15px;
-    transform: skewY(3deg);
+    will-change: transform; /* Ayuda al navegador a optimizar la sección que tendrá transformaciones animadas */
 
-    h2 {
-      color: map-get($modelo3-colors, "section-title");
-      font-size: 1.8rem;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
+    overflow: visible;
+    position: relative;
 
-    &:hover {
-      background-color: map-get($modelo3-colors, "hover");
-      transition: background-color 0.3s ease;
-    }
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra para efecto flotante */
   }
 
-  #experience,
-  #education,
-  #skills,
-  #languages {
-    border: 2px solid map-get($modelo3-colors, "accent");
-    transition: transform 0.4s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+  .section:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
   }
 }

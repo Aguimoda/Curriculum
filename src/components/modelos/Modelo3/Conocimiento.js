@@ -1,9 +1,10 @@
+// Conocimiento.jsx
 import React from "react";
 
 const Conocimiento = ({ titulo }) => {
   return (
-    <div className="conocimiento">
-      <span>{titulo}</span>
+    <div className="knowledge-entry">
+      <p>{titulo}</p>
     </div>
   );
 };

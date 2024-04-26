@@ -1,13 +1,31 @@
+// SeccionConocimientos.jsx
 import React from "react";
-import Conocimiento from "./Conocimiento.js";
+import { useDrag } from "react-dnd";
+import { motion } from "framer-motion";
+import Conocimiento from "./Conocimiento";
 
-const SeccionConocimientos = ({ conocimientos }) => {
+const SeccionConocimientos = ({ conocimientos, tituloSeccion }) => {
+  const [{ isDragging }, dragRef] = useDrag(() => ({
+    type: "section",
+    item: { tituloSeccion },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }));
+
   return (
-    <div className="skills-section">
+    <motion.div
+      ref={dragRef}
+      className="section conocimientos"
+      drag
+      dragConstraints={{ left: -1000, right: 1000, top: -1000, bottom: 1000 }}
+      dragElastic={0.5}
+    >
+      <h2>{tituloSeccion}</h2>
       {conocimientos.map((skill, index) => (
         <Conocimiento key={index} titulo={skill} />
       ))}
-    </div>
+    </motion.div>
   );
 };
 

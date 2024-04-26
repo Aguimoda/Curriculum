@@ -1,13 +1,12 @@
+// EntradaEducacion.jsx
 import React from "react";
 
 const EntradaEducacion = ({ title, institution, duration }) => {
   return (
     <div className="education-entry">
-      <span className="education-title">{title}</span>
-      <br />
-      <span className="education-institution">{institution}</span>
-      <br />
-      <span className="education-duration">{duration}</span>
+      <h3>{title}</h3>
+      <p>{institution}</p>
+      <p>{duration}</p>
     </div>
   );
 };

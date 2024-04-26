@@ -1,9 +1,9 @@
-// SeccionExperiencia.jsx
+// SeccionIdiomas.jsx
 import React from "react";
 import { useDrag } from "react-dnd";
 import { motion } from "framer-motion";
 
-const SeccionExperiencia = ({ experiencia, tituloSeccion }) => {
+const SeccionIdiomas = ({ idiomas, tituloSeccion }) => {
   const [{ isDragging }, dragRef] = useDrag(() => ({
     type: "section",
     item: { name: tituloSeccion },
@@ -15,26 +15,15 @@ const SeccionExperiencia = ({ experiencia, tituloSeccion }) => {
   return (
     <motion.div
       ref={dragRef}
-      className="section experiencia"
+      className="section idiomas"
       drag
       dragConstraints={{ left: -1000, right: 1000, top: -1000, bottom: 1000 }}
       dragElastic={0.5}
     >
       <h2>{tituloSeccion}</h2>
-      {experiencia.map((item, index) => (
-        <div key={index}>
-          <h3>{item.puesto}</h3>
-          <p>{item.empresa}</p>
-          <p>{item.duracion}</p>
-          <ul>
-            {item.labores.map((labor, idx) => (
-              <li key={idx}>{labor}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      <p>{idiomas.join(", ")}</p>
     </motion.div>
   );
 };
 
-export default SeccionExperiencia;
+export default SeccionIdiomas;

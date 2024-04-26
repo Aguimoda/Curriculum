@@ -1,8 +1,49 @@
+// Modelo3.jsx
 import React, { useState, useEffect } from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { motion } from "framer-motion";
 import "../../../styles/componentes/modelos/Modelo3.scss";
 import SeccionExperiencia from "./SeccionExperiencia";
 import SeccionEducacion from "./SeccionEducacion";
 import SeccionConocimientos from "./SeccionConocimientos";
+import SeccionIdiomas from "./SeccionIdiomas";
+
+const floatVariants = {
+  float1: {
+    y: ["-15%", "15%"],
+    transition: {
+      y: {
+        repeat: Infinity,
+        repeatType: "reverse",
+        duration: 2.5,
+        ease: "easeInOut",
+      },
+    },
+  },
+  float2: {
+    x: ["-5%", "5%"],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "reverse",
+        duration: 3,
+        ease: "easeInOut",
+      },
+    },
+  },
+  float3: {
+    rotate: [-2, 2],
+    transition: {
+      rotate: {
+        repeat: Infinity,
+        repeatType: "reverse",
+        duration: 4,
+        ease: "easeInOut",
+      },
+    },
+  },
+};
 
 const Modelo3 = ({ language }) => {
   const [curriculumData, setCurriculumData] = useState({
@@ -17,26 +58,15 @@ const Modelo3 = ({ language }) => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        // Asegúrate de que el nombre del archivo y la ruta sean correctos y reflejen cómo quieres gestionar los datos de idiomas
         const data = await import(
           `../../../utils/JSON/curriculumData_${language}.json`
         );
         setCurriculumData(data.default);
-        setError(false);
       } catch (error) {
         console.error("Failed to load curriculum data:", error);
         setError(true);
-        // Puedes optar por no establecer valores vacíos aquí si prefieres renderizar un mensaje de error en su lugar.
-        setCurriculumData({
-          experiencia: [],
-          educacion: [],
-          conocimientos: [],
-          idiomas: [],
-          secciones: [],
-        });
       }
     };
-
     loadData();
   }, [language]);
 
@@ -54,41 +84,43 @@ const Modelo3 = ({ language }) => {
   } = curriculumData;
 
   return (
-    <div className="modelo3">
-      <div className="content-container">
-        <header className="header">
-          <h1>Daniel Moreno</h1>
-          <p>{descripcion}</p>
-        </header>
-
-        <section id="experience">
-          <h2>{secciones[1]}</h2>
-          {experiencia.map((exp, index) => (
+    <DndProvider backend={HTML5Backend}>
+      <div className="modelo3">
+        <div className="content-container">
+          <header className="header">
+            <h1>{curriculumData.nombre}</h1>
+            <p>{descripcion}</p>
+          </header>
+          <motion.div
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             <SeccionExperiencia
-              key={index}
-              title={exp.puesto}
-              period={exp.duracion}
-              details={exp.labores}
+              experiencia={experiencia}
+              tituloSeccion={secciones[1]}
+              floatVariant="float1" // Corrección aquí para pasar la cadena correcta de la variante
             />
-          ))}
-        </section>
-
-        <section id="education">
-          <h2>{secciones[2]}</h2>
-          <SeccionEducacion educationEntries={educacion} />
-        </section>
-
-        <section id="skills">
-          <h2>{secciones[3]}</h2>
-          <SeccionConocimientos conocimientos={conocimientos} />
-        </section>
-
-        <section id="languages">
-          <h2>{secciones[4]}</h2>
-          <p>{idiomas.join(", ")}</p>
-        </section>
+            <SeccionEducacion
+              educacion={educacion}
+              tituloSeccion={secciones[2]}
+              floatVariant="float2" // Corrección aquí
+            />
+            <SeccionConocimientos
+              conocimientos={conocimientos}
+              tituloSeccion={secciones[3]}
+              floatVariant="float3" // Corrección aquí
+            />
+            <SeccionIdiomas
+              idiomas={idiomas}
+              tituloSeccion={secciones[4]}
+              floatVariant="float1" // Corrección aquí
+            />
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </DndProvider>
   );
 };
 
