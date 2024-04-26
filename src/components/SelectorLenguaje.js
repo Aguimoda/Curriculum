@@ -1,50 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/componentes/LanguageSelector.scss";
-import selectorImage from "../utils/images/changeLanguage.png";
 import esFlag from "../utils/images/esFlag.jpg";
-import enFlag from "../utils/images/deFlag.jpg";
-import deFlag from "../utils/images/enFlag.png";
+import enFlag from "../utils/images/enFlag.jpg";
+import deFlag from "../utils/images/deFlag.png";
 
-const LanguageSelector = ({ setLanguage }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
+const LanguageSelector = ({ language, setLanguage }) => {
   return (
     <div className="language-selector">
-      <button className="menu-toggle" onClick={toggleMenu}>
-        <img src={selectorImage} alt="Menu" />
+      <button
+        onClick={() => setLanguage("en")}
+        className={language === "en" ? "selected" : ""}
+      >
+        <img src={enFlag} alt="English" />
       </button>
-      {isOpen && (
-        <div className="menu">
-          <button
-            onClick={() => {
-              setLanguage("en");
-              toggleMenu();
-            }}
-          >
-            <img src={enFlag} alt="English" />
-          </button>
-          <button
-            onClick={() => {
-              setLanguage("es");
-              toggleMenu();
-            }}
-          >
-            <img src={esFlag} alt="Español" />
-          </button>
-          <button
-            onClick={() => {
-              setLanguage("de");
-              toggleMenu();
-            }}
-          >
-            <img src={deFlag} alt="Deutsch" />
-          </button>
-        </div>
-      )}
+      <button
+        onClick={() => setLanguage("es")}
+        className={language === "es" ? "selected" : ""}
+      >
+        <img src={esFlag} alt="Español" />
+      </button>
+      <button
+        onClick={() => setLanguage("de")}
+        className={language === "de" ? "selected" : ""}
+      >
+        <img src={deFlag} alt="Deutsch" />
+      </button>
     </div>
   );
 };

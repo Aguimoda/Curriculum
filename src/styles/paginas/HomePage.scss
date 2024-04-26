@@ -1,8 +1,25 @@
+$fa-font-path: "node_modules/@fortawesome/fontawesome-free/WebFonts" !default;
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+
 .homepage {
+  .controls-card {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000; /* Asegúrate de que flota sobre otros elementos */
+  }
+
   .homepage-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 100px; /* Espacio para no solapar con la tarjeta flotante */
   }
 
   .curriculum-container {
@@ -10,24 +27,9 @@
     width: 100%;
   }
 
-  .boton-atras,
-  .botones {
-    margin: 10px;
-  }
-
-  .controls {
-    width: 90%;
-    padding-left: 20px;
-
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    top: 20px;
-    z-index: 6;
-  }
   .desplazamiento {
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px; /* Espacio entre botones de desplazamiento y selectores */
   }
 }
