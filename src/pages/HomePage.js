@@ -6,7 +6,7 @@ import BotonCambiar from "../components/BotonCambiar";
 import LanguageSelector from "../components/SelectorLenguaje";
 import AnimationSelector from "../components/SelectorAnimacion"; // Asegúrate de que la ruta es correcta
 import { gsap } from "gsap";
-import "../styles/paginas/HomePage.scss";
+import "../assets/styles/pages/HomePage.scss";
 
 const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

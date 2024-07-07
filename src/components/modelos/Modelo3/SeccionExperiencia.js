@@ -1,25 +1,10 @@
 // SeccionExperiencia.jsx
 import React from "react";
-import { useDrag } from "react-dnd";
-import { motion } from "framer-motion";
+import SeccionBase from "./SeccionBase";
 
 const SeccionExperiencia = ({ experiencia, tituloSeccion }) => {
-  const [{ isDragging }, dragRef] = useDrag(() => ({
-    type: "section",
-    item: { name: tituloSeccion },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
-  }));
-
   return (
-    <motion.div
-      ref={dragRef}
-      className="section experiencia"
-      drag
-      dragConstraints={{ left: -1000, right: 1000, top: -1000, bottom: 1000 }}
-      dragElastic={0.5}
-    >
+    <SeccionBase>
       <h2>{tituloSeccion}</h2>
       {experiencia.map((item, index) => (
         <div key={index}>
@@ -33,7 +18,7 @@ const SeccionExperiencia = ({ experiencia, tituloSeccion }) => {
           </ul>
         </div>
       ))}
-    </motion.div>
+    </SeccionBase>
   );
 };
 

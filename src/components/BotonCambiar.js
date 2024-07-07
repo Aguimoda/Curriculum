@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/componentes/BotonCambiar.scss";
+import "../assets/styles/components/BotonCambiar.scss";
 
 const BotonCambiar = ({ onFlip, direccion, clase }) => {
   return (
