@@ -65,8 +65,8 @@ const ModeloArtistico = ({ language }) => {
   ];
 
   const handleClick = (id) => {
-    if (isVertical == true) {
-      if (activeSection == id) {
+    if (isVertical === true) {
+      if (activeSection === id) {
         setIsVertical(false);
         setActiveSection(null);
       }

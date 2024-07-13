@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/componentes/LanguageSelector.scss";
 import esFlag from "../utils/images/esFlag.jpg";
-import enFlag from "../utils/images/enFlag.jpg";
-import deFlag from "../utils/images/deFlag.png";
+import enFlag from "../utils/images/deFlag.png";
+import deFlag from "../utils/images/enFlag.jpg";
 
 const LanguageSelector = ({ language, setLanguage }) => {
   return (

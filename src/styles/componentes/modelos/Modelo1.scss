@@ -69,4 +69,32 @@
       }
     }
   }
+
+  // Estilos responsivos
+  @media (min-width: 768px) {
+    main.container {
+      max-width: 1200px;
+    }
+
+    section {
+      padding: 30px;
+    }
+
+    .grid {
+      gap: 30px;
+    }
+
+    .experience-item,
+    .education-section,
+    .skills-section,
+    .languages-section {
+      padding: 30px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    main.container {
+      max-width: 1600px;
+    }
+  }
 }

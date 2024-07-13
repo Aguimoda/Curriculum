@@ -10,12 +10,13 @@ import "../assets/styles/pages/HomePage.scss";
 
 const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const modelos = ["modelo1", "modelo2", "modelo3", "modeloA"];
+  const modelos = ["modelo1", "modelo2", "modelo3", "modeloA", "modelo5"];
   const [isFlipping, setIsFlipping] = useState(false);
   const [direccionActual, setDireccionActual] = useState("adelante");
   const [language, setLanguage] = useState("en");
   const [animationType, setAnimationType] = useState("fade");
   const animationOptions = ["fade", "slide", "zoom", "none"];
+  const [isExpanded, setIsExpanded] = useState(false); // Nuevo estado para controlar la expansión
 
   const curriculumRef = useRef();
 
@@ -25,7 +26,6 @@ const HomePage = () => {
       : (index - 1 + modelos.length) % modelos.length;
   };
 
-  // Asegúrate de definir nextModel en el nivel superior del componente
   const nextModel = modelos[getNextIndex(currentIndex, direccionActual)];
 
   const handleFlip = (direccion) => {
@@ -38,11 +38,15 @@ const HomePage = () => {
     }, 600); // Ensure duration matches the GSAP animation timeline
   };
 
+  const toggleControls = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="homepage">
       <div className="homepage-container">
         <Header />
-        <div className="controls-card">
+        <div className={`controls-card ${isExpanded ? "expanded" : ""}`}>
           <div className="desplazamiento">
             <BotonCambiar
               onFlip={() => handleFlip("atras")}
@@ -53,11 +57,23 @@ const HomePage = () => {
               direccion="adelante"
             />
           </div>
-          <LanguageSelector language={language} setLanguage={setLanguage} />
-          <AnimationSelector
-            animationType={animationType}
-            setAnimationType={setAnimationType}
-          />
+          {isExpanded && (
+            <>
+              <LanguageSelector language={language} setLanguage={setLanguage} />
+              <AnimationSelector
+                animationType={animationType}
+                setAnimationType={setAnimationType}
+              />
+              <button className="close-button" onClick={toggleControls}>
+                X
+              </button>
+            </>
+          )}
+          {!isExpanded && (
+            <button className="expand-button" onClick={toggleControls}>
+              Controles
+            </button>
+          )}
         </div>
         <div className="curriculum-container" ref={curriculumRef}>
           <Curriculum

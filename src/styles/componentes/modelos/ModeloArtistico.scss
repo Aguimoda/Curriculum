@@ -104,3 +104,26 @@
     opacity: 0;
   }
 }
+
+/* Estilos responsivos */
+@media (min-width: 768px) {
+  .circles-container {
+    max-width: 1200px;
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .circles-container {
+    max-width: 1600px;
+  }
+
+  .circle {
+    width: 200px;
+    height: 200px;
+  }
+}

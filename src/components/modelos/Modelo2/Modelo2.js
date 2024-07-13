@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../../../styles/componentes/modelos/Modelo2.scss";
 import SeccionExperiencia from "./SeccionExperiencia";
 import SeccionEducacion from "./SeccionEducacion";
 import perfilImage from "../../../utils/images/perfil.jpg";
+import TigerSpots from "./TigerSpots"; // Asegúrate de que la ruta es correcta
+import "../../../styles/componentes/modelos/Modelo2.scss";
 
 const Modelo2 = ({ language }) => {
   const [curriculumData, setCurriculumData] = useState({
@@ -14,6 +15,7 @@ const Modelo2 = ({ language }) => {
     idiomas: [],
     secciones: [],
   });
+  const [hoveredSection, setHoveredSection] = useState(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -24,13 +26,20 @@ const Modelo2 = ({ language }) => {
         setCurriculumData(data.default);
       } catch (error) {
         console.error("Failed to load curriculum data:", error);
-        // Maneja el caso de error, por ejemplo, mostrando un mensaje al usuario
-        setCurriculumData({ experiencia: [], educacion: [] }); // Inicializa con estructuras vacías
+        setCurriculumData({ experiencia: [], educacion: [] });
       }
     };
 
     loadData();
   }, [language]);
+
+  const handleMouseEnter = (section) => {
+    setHoveredSection(section);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredSection(null);
+  };
 
   const {
     nombre,
@@ -39,7 +48,6 @@ const Modelo2 = ({ language }) => {
     educacion,
     conocimientos,
     idiomas,
-
     secciones,
   } = curriculumData;
 
@@ -58,37 +66,63 @@ const Modelo2 = ({ language }) => {
       </div>
       <main className="content">
         <div className="column">
-          <section id="experience">
-            <h2>{secciones[1]}</h2>
+          <section
+            id="experience"
+            className="animated-section"
+            onMouseEnter={() => handleMouseEnter("experience")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <h2 className="text-content">{secciones[1]}</h2>
             {experiencia.map((exp, index) => (
               <SeccionExperiencia
                 key={index}
                 title={exp.puesto}
                 period={exp.duracion}
                 details={exp.labores}
+                className="text-content"
               />
             ))}
+            <TigerSpots hovered={hoveredSection === "experience"} />
           </section>
-          <section id="languages">
-            <h2>{secciones[4]}</h2>
-            <p>{idiomas?.join(", ")}</p>
+          <section
+            id="languages"
+            className="animated-section"
+            onMouseEnter={() => handleMouseEnter("languages")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <h2 className="text-content">{secciones[4]}</h2>
+            <p className="text-content">{idiomas?.join(", ")}</p>
+            <TigerSpots hovered={hoveredSection === "languages"} />
           </section>
         </div>
         <div className="column">
-          <section id="education">
-            <h2>{secciones[2]}</h2>
+          <section
+            id="education"
+            className="animated-section"
+            onMouseEnter={() => handleMouseEnter("education")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <h2 className="text-content">{secciones[2]}</h2>
             {educacion.map((edu, index) => (
               <SeccionEducacion
                 key={index}
                 titulo={edu.titulo}
                 institution={edu.institucion}
                 duration={edu.duracion}
+                className="text-content"
               />
             ))}
+            <TigerSpots hovered={hoveredSection === "education"} />
           </section>
-          <section id="skills">
-            <h2>{secciones[3]}</h2>
-            <p>{conocimientos?.join(", ")}</p>
+          <section
+            id="skills"
+            className="animated-section"
+            onMouseEnter={() => handleMouseEnter("skills")}
+            onMouseLeave={handleMouseLeave}
+          >
+            <h2 className="text-content">{secciones[3]}</h2>
+            <p className="text-content">{conocimientos?.join(", ")}</p>
+            <TigerSpots hovered={hoveredSection === "skills"} />
           </section>
         </div>
       </main>

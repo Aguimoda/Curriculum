@@ -4,6 +4,8 @@ import Modelo1 from "./modelos/Modelo1/Modelo1";
 import Modelo2 from "./modelos/Modelo2/Modelo2";
 import Modelo3 from "./modelos/Modelo3/Modelo3";
 import ModeloArtistico from "./modelos/ModeloArtistico/ModeloArtistico";
+import Modelo5 from "./modelos/Modelo5/Modelo5";
+
 import "../styles/componentes/Curriculum.scss";
 
 const Curriculum = ({
@@ -25,6 +27,8 @@ const Curriculum = ({
         return <Modelo3 language={language} />;
       case "modeloA":
         return <ModeloArtistico language={language} />;
+      case "modelo5":
+        return <Modelo5 language={language} />;
       default:
         return null;
     }
