@@ -1,0 +1,87 @@
+.control-panel {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: height 0.3s ease, max-height 0.3s ease;
+  padding: 10px 20px;
+
+  .fixed-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .boton-cambiar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &.expanded {
+    max-height: 100vh;
+    overflow: auto;
+  }
+
+  .toggle-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: left;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .controls {
+    padding: 10px 0;
+
+    .languages {
+      display: flex;
+      justify-content: space-between;
+
+      img {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+    }
+
+    .animations {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      button {
+        background: #0175d8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background: #005bb5;
+        }
+      }
+    }
+  }
+}

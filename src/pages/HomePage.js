@@ -2,21 +2,17 @@ import React, { useState, useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Curriculum from "../components/Curriculum";
-import BotonCambiar from "../components/BotonCambiar";
-import LanguageSelector from "../components/SelectorLenguaje";
-import AnimationSelector from "../components/SelectorAnimacion"; // Asegúrate de que la ruta es correcta
-import { gsap } from "gsap";
-import "../assets/styles/pages/HomePage.scss";
+import ControlPanel from "../components/ControlPanel";
+import "../styles/paginas/HomePage.scss";
 
 const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const modelos = ["modelo1", "modelo2", "modelo3", "modeloA", "modelo5"];
+  const modelos = ["modelo1", "modelo2"];
   const [isFlipping, setIsFlipping] = useState(false);
   const [direccionActual, setDireccionActual] = useState("adelante");
   const [language, setLanguage] = useState("en");
   const [animationType, setAnimationType] = useState("fade");
-  const animationOptions = ["fade", "slide", "zoom", "none"];
-  const [isExpanded, setIsExpanded] = useState(false); // Nuevo estado para controlar la expansión
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const curriculumRef = useRef();
 
@@ -26,8 +22,6 @@ const HomePage = () => {
       : (index - 1 + modelos.length) % modelos.length;
   };
 
-  const nextModel = modelos[getNextIndex(currentIndex, direccionActual)];
-
   const handleFlip = (direccion) => {
     setIsFlipping(true);
     setDireccionActual(direccion);
@@ -35,7 +29,7 @@ const HomePage = () => {
     setTimeout(() => {
       setCurrentIndex(nuevoIndice);
       setIsFlipping(false);
-    }, 600); // Ensure duration matches the GSAP animation timeline
+    }, 600);
   };
 
   const toggleControls = () => {
@@ -44,41 +38,21 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <div className="homepage-container">
+      <ControlPanel
+        onFlipNext={() => handleFlip("adelante")}
+        onFlipPrevious={() => handleFlip("atras")}
+        isExpanded={isExpanded}
+        toggleControls={toggleControls}
+        language={language}
+        setLanguage={setLanguage}
+        animationType={animationType}
+        setAnimationType={setAnimationType}
+      />
+      <div className="homepage-container" ref={curriculumRef}>
         <Header />
-        <div className={`controls-card ${isExpanded ? "expanded" : ""}`}>
-          <div className="desplazamiento">
-            <BotonCambiar
-              onFlip={() => handleFlip("atras")}
-              direccion="atras"
-            />
-            <BotonCambiar
-              onFlip={() => handleFlip("adelante")}
-              direccion="adelante"
-            />
-          </div>
-          {isExpanded && (
-            <>
-              <LanguageSelector language={language} setLanguage={setLanguage} />
-              <AnimationSelector
-                animationType={animationType}
-                setAnimationType={setAnimationType}
-              />
-              <button className="close-button" onClick={toggleControls}>
-                X
-              </button>
-            </>
-          )}
-          {!isExpanded && (
-            <button className="expand-button" onClick={toggleControls}>
-              Controles
-            </button>
-          )}
-        </div>
-        <div className="curriculum-container" ref={curriculumRef}>
+        <div className="curriculum-container">
           <Curriculum
             currentModel={modelos[currentIndex]}
-            nextModel={nextModel}
             isFlipping={isFlipping}
             direccion={direccionActual}
             language={language}

@@ -49,6 +49,10 @@
     "WordPress",
     "React"
   ],
-  "idiomas": ["Spanisch", "Englisch", "Deutsch"],
+  "idiomas": [
+    { "idioma": "Spanisch", "nivel": "Muttersprache" },
+    { "idioma": "Englisch", "nivel": "Zweisprachigkeit" },
+    { "idioma": "Deutsch", "nivel": "Fließend" }
+  ],
   "secciones": ["Über Mich", "Erfahrung", "Bildung", "Kenntnisse", "Sprachen"]
 }

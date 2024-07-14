@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import SeccionExperiencia from "./SeccionExperiencia";
 import SeccionEducacion from "./SeccionEducacion";
 import perfilImage from "../../../utils/images/perfil.jpg";
-import TigerSpots from "./TigerSpots"; // Asegúrate de que la ruta es correcta
 import "../../../styles/componentes/modelos/Modelo2.scss";
 
 const Modelo2 = ({ language }) => {
@@ -82,7 +81,6 @@ const Modelo2 = ({ language }) => {
                 className="text-content"
               />
             ))}
-            <TigerSpots hovered={hoveredSection === "experience"} />
           </section>
           <section
             id="languages"
@@ -92,7 +90,6 @@ const Modelo2 = ({ language }) => {
           >
             <h2 className="text-content">{secciones[4]}</h2>
             <p className="text-content">{idiomas?.join(", ")}</p>
-            <TigerSpots hovered={hoveredSection === "languages"} />
           </section>
         </div>
         <div className="column">
@@ -112,7 +109,6 @@ const Modelo2 = ({ language }) => {
                 className="text-content"
               />
             ))}
-            <TigerSpots hovered={hoveredSection === "education"} />
           </section>
           <section
             id="skills"
@@ -122,7 +118,6 @@ const Modelo2 = ({ language }) => {
           >
             <h2 className="text-content">{secciones[3]}</h2>
             <p className="text-content">{conocimientos?.join(", ")}</p>
-            <TigerSpots hovered={hoveredSection === "skills"} />
           </section>
         </div>
       </main>

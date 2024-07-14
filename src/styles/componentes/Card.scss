@@ -1,0 +1,145 @@
+.card {
+  width: 350px;
+  min-height: 350px;
+  transition: height 0.6s ease, transform 0.6s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  perspective: 1000px;
+  position: relative;
+  margin: 20px;
+
+  &.flipped {
+    height: auto;
+    z-index: 1;
+  }
+
+  &-inner {
+    position: relative;
+    min-width: 350px;
+    min-height: 350px;
+    width: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.6s, height 0.6s;
+  }
+
+  &.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  &-front,
+  &-back {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  &-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    min-height: 350px;
+  }
+
+  &-back {
+    transform: rotateY(180deg);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+  }
+
+  &.flipped .card-back {
+    position: relative;
+  }
+
+  h2.item {
+    color: black;
+    margin: 0;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: box-shadow 0.6s ease-in-out, color 0.5s ease-in-out,
+      background-image 0.6s ease-in-out;
+    background-clip: padding-box; /* Cambiado de 'auto' a 'padding-box' para que el fondo cubra todo el circulo */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    overflow: hidden; /* Oculta contenido desbordado */
+    --itemWidth: 340px; /* Definido para mantener las proporciones del efecto original */
+    --itemWidthMinus: calc(-1 * var(--itemWidth));
+    box-shadow: inset var(--itemWidthMinus) var(--itemWidthMinus) 0 white,
+      inset var(--itemWidth) var(--itemWidthMinus) 0 green,
+      inset var(--itemWidthMinus) var(--itemWidth) 0 blue,
+      inset var(--itemWidth) var(--itemWidth) 0 yellow, 0 0 20px silver;
+  }
+
+  h2.item:hover {
+    box-shadow: inset 0 0 0 transparent, inset 0 0 0 transparent,
+      inset 0 0 0 transparent, inset 0 0 0 transparent, 0 0 20px silver;
+    color: transparent;
+    &.experience {
+      background-image: url("../../assets/imagenExperiencia.jpg");
+    } /* Cambia esta URL por la imagen que desees */
+
+    &.skills {
+      background-image: url("../../assets/imagenSkills.jpg");
+    }
+
+    &.languages {
+      background-image: url("../../assets/imagenIdiomas.jpg");
+    }
+
+    &.education {
+      background-image: url("../../assets/imagenEducacion.jpg");
+    }
+  }
+
+  .subsection-container {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .subsection {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    border-top: 1px solid #ccc;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+
+  .subsection.expanded {
+    background-color: #e0e0e0;
+    height: auto;
+  }
+
+  .show-more-button {
+    background: none;
+    border: none;
+    color: #0175d8;
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

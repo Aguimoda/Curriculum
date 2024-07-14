@@ -13,13 +13,13 @@
       ]
     },
     {
-      "puesto": "Cocinero/Gerente de Tienda",
+      "puesto": "Gerente de Tienda",
       "empresa": "",
       "duracion": "2019-2021",
       "labores": [
-        "Gestión de la planificación y ejecución de la producción de helados.",
-        "Supervisión del equipo para un rendimiento óptimo y colaboración.",
-        "Mantenimiento de relaciones con clientes para excelencia en el servicio."
+        "Gestión operativa: Optimización del inventario y el personal,  racionalización de las operaciones para mejorar la eficiencia general de la tienda.",
+        "Atención al cliente: Mantenimiento de un alto nivel de atención al cliente, atendiendo a sus necesidades y resolviendo los problemas con eficacia.",
+        "Mejora de las ventas: Contribución al crecimiento de las ventas mediante una gestión eficaz del equipo y un servicio de atención al cliente superior."
       ]
     }
   ],
@@ -49,7 +49,11 @@
     "WordPress",
     "React"
   ],
-  "idiomas": ["Español", "Inglés", "Alemán"],
+  "idiomas": [
+    { "idioma": "Español", "nivel": "Nativo" },
+    { "idioma": "Inglés", "nivel": "Bilingüe" },
+    { "idioma": "Alemán", "nivel": "Fluido" }
+  ],
   "secciones": [
     "Descripcion",
     "Experiencia",
