@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../../../styles/componentes/Card.scss";
 import SeccionExperiencia from "./SeccionExperiencia";
 import SeccionEducacion from "./SeccionEducacion";
@@ -9,6 +9,8 @@ const Card = ({ section, data, title }) => {
   const [flipped, setFlipped] = useState(false);
   const [expandedSubsection, setExpandedSubsection] = useState(null);
   const [showMore, setShowMore] = useState({});
+  const frontRef = useRef(null);
+  const backRef = useRef(null);
 
   const handleFlip = (e) => {
     e.stopPropagation();
@@ -28,13 +30,27 @@ const Card = ({ section, data, title }) => {
     }));
   };
 
+  useEffect(() => {
+    if (flipped) {
+      if (backRef.current) {
+        backRef.current.style.position = "relative";
+      }
+    } else {
+      setTimeout(() => {
+        if (backRef.current) {
+          backRef.current.style.position = "absolute";
+        }
+      }, 600); // Match the CSS transition duration
+    }
+  }, [flipped]);
+
   return (
     <div className={`card ${flipped ? "flipped" : ""}`} onClick={handleFlip}>
       <div className="card-inner">
-        <div className="card-front">
+        <div className="card-front" ref={frontRef}>
           <h2 className={`item ${section}`}>{title}</h2>
         </div>
-        <div className="card-back">
+        <div className="card-back" ref={backRef}>
           {data.map((item, index) => (
             <div key={index} className="subsection-container">
               <div

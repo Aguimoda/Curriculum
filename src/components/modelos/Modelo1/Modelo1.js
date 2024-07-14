@@ -30,30 +30,14 @@ const Modelo1 = ({ language }) => {
   return (
     <div className="modelo1">
       <main className="container">
+        <Card section="experience" data={experiencia} title={secciones[1]} />
+        <Card section="education" data={educacion} title={secciones[2]} />
         <Card
-          className="experience"
-          section="experience"
-          data={experiencia}
-          title={secciones[1]}
-        />
-        <Card
-          className="ducation"
-          section="education"
-          data={educacion}
-          title={secciones[2]}
-        />
-        <Card
-          className="skills"
           section="skills"
           data={[{ conocimientos }]}
           title={secciones[3]}
         />
-        <Card
-          className="languages"
-          section="languages"
-          data={idiomas}
-          title={secciones[4]}
-        />
+        <Card section="languages" data={idiomas} title={secciones[4]} />
       </main>
     </div>
   );

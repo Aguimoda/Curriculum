@@ -1,85 +1,76 @@
 .control-panel {
+  background-color: #007bff;
+  color: white;
   position: relative;
   top: 0;
-  left: 0;
   width: 100%;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transition: height 0.3s ease, max-height 0.3s ease;
-  padding: 10px 20px;
-
-  .fixed-controls {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  .boton-cambiar {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #0056b3;
-    }
-  }
+  transition: max-height 0.3s ease, height 0.3s ease; /* Smooth transition */
+  overflow: hidden;
+  max-height: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
   &.expanded {
-    max-height: 100vh;
-    overflow: auto;
+    max-height: 300px;
   }
 
-  .toggle-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 0;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    text-align: left;
+  .control-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    &:hover {
-      background-color: #0056b3;
-    }
-  }
+    padding: 0px 20px;
 
-  .controls {
-    padding: 10px 0;
+    .view-toggle-button,
+    .expand-button {
+      background-color: white;
+      color: #007bff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
 
-    .languages {
-      display: flex;
-      justify-content: space-between;
-
-      img {
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
+      &:hover {
+        background-color: #0056b3;
+        color: white;
       }
     }
+  }
 
-    .animations {
+  .control-content {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+
+    .language-selector,
+    .animation-selector {
       display: flex;
-      flex-direction: column;
-      gap: 5px;
+      align-items: center;
+      gap: 10px;
 
-      button {
-        background: #0175d8;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 5px;
-        cursor: pointer;
+      label {
+        margin-right: 10px;
+      }
 
-        &:hover {
-          background: #005bb5;
+      .flags,
+      .animations {
+        display: flex;
+        gap: 10px;
+
+        .flag,
+        .icon {
+          cursor: pointer;
+          width: 32px;
+          height: 32px;
+          transition: transform 0.3s ease;
+
+          &.active {
+            transform: scale(1.2);
+          }
         }
       }
     }

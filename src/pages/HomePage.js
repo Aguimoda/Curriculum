@@ -7,6 +7,7 @@ import "../styles/paginas/HomePage.scss";
 
 const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [viewMode, setViewMode] = useState("sections");
   const modelos = ["modelo1", "modelo2"];
   const [isFlipping, setIsFlipping] = useState(false);
   const [direccionActual, setDireccionActual] = useState("adelante");
@@ -36,17 +37,22 @@ const HomePage = () => {
     setIsExpanded(!isExpanded);
   };
 
+  const handleToggleView = () => {
+    handleFlip("adelante"); // Switch to the next model
+    setViewMode((prevMode) => (prevMode === "sections" ? "full" : "sections"));
+  };
+
   return (
     <div className="homepage">
       <ControlPanel
-        onFlipNext={() => handleFlip("adelante")}
-        onFlipPrevious={() => handleFlip("atras")}
+        onToggleView={handleToggleView}
         isExpanded={isExpanded}
         toggleControls={toggleControls}
         language={language}
         setLanguage={setLanguage}
         animationType={animationType}
         setAnimationType={setAnimationType}
+        viewMode={viewMode}
       />
       <div className="homepage-container" ref={curriculumRef}>
         <Header />
@@ -57,6 +63,7 @@ const HomePage = () => {
             direccion={direccionActual}
             language={language}
             animationType={animationType}
+            viewMode={viewMode}
           />
         </div>
         <Footer />

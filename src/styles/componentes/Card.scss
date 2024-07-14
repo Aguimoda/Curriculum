@@ -70,14 +70,15 @@
     align-items: center;
     border-radius: 50%;
     transition: box-shadow 0.6s ease-in-out, color 0.5s ease-in-out,
-      background-image 0.6s ease-in-out;
-    background-clip: padding-box; /* Cambiado de 'auto' a 'padding-box' para que el fondo cubra todo el circulo */
+      background-image 0.6s ease-in-out, color 0.3s ease-in-out,
+      text-shadow 0.3s ease-in-out;
+    background-clip: padding-box;
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto 100%;
-    font-size: 1.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
-    overflow: hidden; /* Oculta contenido desbordado */
-    --itemWidth: 340px; /* Definido para mantener las proporciones del efecto original */
+    font-size: 1.5rem;
+    overflow: hidden;
+    --itemWidth: 340px;
     --itemWidthMinus: calc(-1 * var(--itemWidth));
     box-shadow: inset var(--itemWidthMinus) var(--itemWidthMinus) 0 white,
       inset var(--itemWidth) var(--itemWidthMinus) 0 green,
@@ -88,10 +89,12 @@
   h2.item:hover {
     box-shadow: inset 0 0 0 transparent, inset 0 0 0 transparent,
       inset 0 0 0 transparent, inset 0 0 0 transparent, 0 0 20px silver;
-    color: transparent;
+    color: white;
+    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 1px 1px 0 #000; // Adds black outline
+
     &.experience {
       background-image: url("../../assets/imagenExperiencia.jpg");
-    } /* Cambia esta URL por la imagen que desees */
+    }
 
     &.skills {
       background-image: url("../../assets/imagenSkills.jpg");
@@ -118,6 +121,7 @@
     text-align: left;
     cursor: pointer;
     border-top: 1px solid #ccc;
+    transition: background-color 0.3s ease;
 
     &:hover {
       background-color: #f0f0f0;
@@ -137,6 +141,7 @@
     padding: 10px;
     text-align: left;
     width: 100%;
+    transition: text-decoration 0.3s ease;
 
     &:hover {
       text-decoration: underline;

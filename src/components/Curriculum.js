@@ -10,14 +10,15 @@ const Curriculum = ({
   direccion,
   language,
   animationType,
+  viewMode,
 }) => {
   const modelRef = useRef();
 
   const getModelComponent = (modelName) => {
     return modelName === "modelo1" ? (
-      <Modelo1 language={language} ref={modelRef} />
+      <Modelo1 language={language} viewMode={viewMode} ref={modelRef} />
     ) : (
-      <Modelo2 language={language} ref={modelRef} />
+      <Modelo2 language={language} viewMode={viewMode} ref={modelRef} />
     );
   };
 

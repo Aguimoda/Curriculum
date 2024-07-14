@@ -1,60 +1,97 @@
 import React from "react";
-import BotonCambiar from "../components/BotonCambiar";
-import LanguageSelector from "../components/SelectorLenguaje";
-import AnimationSelector from "../components/SelectorAnimacion";
 import "../styles/componentes/ControlPanel.scss";
+import enFlag from "../utils/images/enFlag.png";
+import esFlag from "../utils/images/esFlag.jpg";
+import deFlag from "../utils/images/deFlag.jpg";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAdjust,
+  faSearchPlus,
+  faArrowsAltH,
+  faBan,
+} from "@fortawesome/free-solid-svg-icons";
 
 const ControlPanel = ({
-  onFlipNext,
-  onFlipPrevious,
+  onToggleView,
   isExpanded,
   toggleControls,
   language,
   setLanguage,
   animationType,
   setAnimationType,
+  viewMode,
 }) => {
-  const handlePanelClick = (e) => {
-    // Prevenir la expansión del panel si se hace clic en los botones de flecha
-    if (e.target.closest(".boton-cambiar")) {
-      return;
-    }
-    toggleControls();
-  };
-
-  const handleFlip = (direction, e) => {
-    e.stopPropagation(); // Prevenir la expansión del panel
-    if (direction === "atras") {
-      onFlipPrevious();
-    } else {
-      onFlipNext();
-    }
+  const handleToggleView = (e) => {
+    e.stopPropagation();
+    onToggleView();
   };
 
   return (
-    <div
-      className={`control-panel ${isExpanded ? "expanded" : ""}`}
-      onClick={handlePanelClick}
-    >
-      <div className="fixed-controls">
-        <BotonCambiar
-          onFlip={(e) => handleFlip("atras", e)}
-          direccion="atras"
-          className="boton-cambiar"
-        />
-        <BotonCambiar
-          onFlip={(e) => handleFlip("adelante", e)}
-          direccion="adelante"
-          className="boton-cambiar"
-        />
+    <div className={`control-panel ${isExpanded ? "expanded" : ""}`}>
+      <div className="control-header">
+        <button className="view-toggle-button" onClick={handleToggleView}>
+          {viewMode === "sections" ? "Vista Completa" : "Vista Secciones"}
+        </button>
+        <button
+          className="expand-button"
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleControls();
+          }}
+        >
+          {isExpanded ? "X" : "Mas Opciones"}
+        </button>
       </div>
       {isExpanded && (
-        <div className="controls">
-          <LanguageSelector language={language} setLanguage={setLanguage} />
-          <AnimationSelector
-            animationType={animationType}
-            setAnimationType={setAnimationType}
-          />
+        <div className="control-content">
+          <div className="language-selector">
+            <div className="flags">
+              <img
+                src={enFlag}
+                alt="English"
+                className={`flag ${language === "en" ? "active" : ""}`}
+                onClick={() => setLanguage("en")}
+              />
+              <img
+                src={esFlag}
+                alt="Español"
+                className={`flag ${language === "es" ? "active" : ""}`}
+                onClick={() => setLanguage("es")}
+              />
+              <img
+                src={deFlag}
+                alt="Deutsch"
+                className={`flag ${language === "de" ? "active" : ""}`}
+                onClick={() => setLanguage("de")}
+              />
+            </div>
+          </div>
+          <div className="animation-selector">
+            <div className="animations">
+              <FontAwesomeIcon
+                icon={faAdjust}
+                size="lg"
+                alt="Fade"
+                className={`icon ${animationType === "fade" ? "active" : ""}`}
+                onClick={() => setAnimationType("fade")}
+              />
+              <FontAwesomeIcon
+                icon={faArrowsAltH}
+                size="lg"
+                alt="Slide"
+                className={`icon ${animationType === "slide" ? "active" : ""}`}
+                onClick={() => setAnimationType("slide")}
+              />
+              <FontAwesomeIcon
+                icon={faSearchPlus}
+                size="lg"
+                alt="Zoom"
+                className={`icon ${animationType === "zoom" ? "active" : ""}`}
+                onClick={() => setAnimationType("zoom")}
+              />
+            </div>
+          </div>
         </div>
       )}
     </div>
