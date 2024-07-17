@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Curriculum/static/css/main.fe65a368.css",
-    "main.js": "/Curriculum/static/js/main.258166d3.js",
+    "main.css": "/Curriculum/static/css/main.f76f35a9.css",
+    "main.js": "/Curriculum/static/js/main.7ca3a5dc.js",
     "static/js/417.83d8df03.chunk.js": "/Curriculum/static/js/417.83d8df03.chunk.js",
     "static/js/661.78c8518a.chunk.js": "/Curriculum/static/js/661.78c8518a.chunk.js",
     "static/js/646.d1916f9d.chunk.js": "/Curriculum/static/js/646.d1916f9d.chunk.js",
@@ -10,13 +10,14 @@
     "static/media/imagenIdiomas.jpg": "/Curriculum/static/media/imagenIdiomas.49a2b3c96da6772274f8.jpg",
     "static/media/imagenEducacion.jpg": "/Curriculum/static/media/imagenEducacion.a0583da633b9c57df768.jpg",
     "static/media/perfil.jpg": "/Curriculum/static/media/perfil.ebd68ac059e304936b7d.jpg",
+    "static/media/expand.png": "/Curriculum/static/media/expand.799439d17aca2b35fa4b.png",
     "static/media/enFlag.png": "/Curriculum/static/media/enFlag.f84db42bea5c7e36cd4e.png",
     "index.html": "/Curriculum/index.html",
-    "main.fe65a368.css.map": "/Curriculum/static/css/main.fe65a368.css.map",
-    "main.258166d3.js.map": "/Curriculum/static/js/main.258166d3.js.map"
+    "main.f76f35a9.css.map": "/Curriculum/static/css/main.f76f35a9.css.map",
+    "main.7ca3a5dc.js.map": "/Curriculum/static/js/main.7ca3a5dc.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe65a368.css",
-    "static/js/main.258166d3.js"
+    "static/css/main.f76f35a9.css",
+    "static/js/main.7ca3a5dc.js"
   ]
 }
