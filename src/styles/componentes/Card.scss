@@ -1,3 +1,5 @@
+/* ... tu código CSS existente ... */
+
 .card {
   width: 350px;
   min-height: 350px;
@@ -76,7 +78,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto 100%;
-    font-size: 1.5rem;
+    font-size: 2rem;
     overflow: hidden;
     --itemWidth: 340px;
     --itemWidthMinus: calc(-1 * var(--itemWidth));
@@ -84,6 +86,29 @@
       inset var(--itemWidth) var(--itemWidthMinus) 0 green,
       inset var(--itemWidthMinus) var(--itemWidth) 0 blue,
       inset var(--itemWidth) var(--itemWidth) 0 yellow, 0 0 20px silver;
+  }
+
+  h2.item.hover {
+    box-shadow: inset 0 0 0 transparent, inset 0 0 0 transparent,
+      inset 0 0 0 transparent, inset 0 0 0 transparent, 0 0 20px silver;
+    color: white;
+    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 1px 1px 0 #000; // Adds black outline
+
+    &.experience {
+      background-image: url("../../assets/imagenExperiencia.jpg");
+    }
+
+    &.skills {
+      background-image: url("../../assets/imagenSkills.jpg");
+    }
+
+    &.languages {
+      background-image: url("../../assets/imagenIdiomas.jpg");
+    }
+
+    &.education {
+      background-image: url("../../assets/imagenEducacion.jpg");
+    }
   }
 
   h2.item:hover {

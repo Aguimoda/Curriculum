@@ -9,7 +9,7 @@ const HomePage = () => {
   const modelos = ["full", "sections"];
   const [currentModel, setCurrentModel] = useState(modelos[1]);
   const [language, setLanguage] = useState("en");
-  const [animationType, setAnimationType] = useState("fade");
+  const [animationType, setAnimationType] = useState("slide");
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFlipping, setIsFlipping] = useState(false);
   const [direccion, setDireccion] = useState("adelante");
