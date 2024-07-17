@@ -1,0 +1,32 @@
+{
+  "en": {
+    "view_complete": "Full View",
+    "view_sections": "Sections View",
+    "more_options": "More Options",
+    "close": "Close",
+    "change_model": "Change Model",
+    "fade": "Fade",
+    "slide": "Slide",
+    "zoom": "Zoom"
+  },
+  "es": {
+    "view_complete": "Vista Completa",
+    "view_sections": "Vista Secciones",
+    "more_options": "Más Opciones",
+    "close": "Cerrar",
+    "change_model": "Cambiar Modelo",
+    "fade": "Desvanecer",
+    "slide": "Deslizar",
+    "zoom": "Zoom"
+  },
+  "de": {
+    "view_complete": "Vollansicht",
+    "view_sections": "Abschnittsansicht",
+    "more_options": "Mehr Optionen",
+    "close": "Schließen",
+    "change_model": "Modell wechseln",
+    "fade": "Verblassen",
+    "slide": "Gleiten",
+    "zoom": "Zoom"
+  }
+}

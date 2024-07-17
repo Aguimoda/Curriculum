@@ -6,81 +6,75 @@ import "../styles/componentes/Curriculum.scss";
 
 const Curriculum = ({
   currentModel,
-  isFlipping,
-  direccion,
   language,
   animationType,
-  viewMode,
+  isFlipping,
+  direccion,
+  onAnimationComplete,
 }) => {
   const modelRef = useRef();
 
   const getModelComponent = (modelName) => {
-    return modelName === "modelo1" ? (
-      <Modelo1 language={language} viewMode={viewMode} ref={modelRef} />
+    return modelName === "full" ? (
+      <Modelo1 language={language} ref={modelRef} />
     ) : (
-      <Modelo2 language={language} viewMode={viewMode} ref={modelRef} />
+      <Modelo2 language={language} ref={modelRef} />
     );
   };
 
   useEffect(() => {
     if (isFlipping) {
+      const animation = { duration: 0.3, ease: "power2.inOut" };
+      const slideDirection = direccion === "adelante" ? 900 : -900;
+
       switch (animationType) {
         case "fade":
           gsap.to(modelRef.current, {
             opacity: 0,
-            duration: 0.3,
-            ease: "power2.in",
+            ...animation,
             onComplete: () => {
-              gsap.to(modelRef.current, {
-                opacity: 1,
-                duration: 0.3,
-                ease: "power2.out",
-              });
+              onAnimationComplete(); // Notify parent to change model
+              gsap.to(modelRef.current, { opacity: 1, ...animation });
             },
           });
           break;
         case "slide":
-          const slideDirection = direccion === "adelante" ? 900 : -900;
           gsap.to(modelRef.current, {
             x: slideDirection,
             opacity: 0,
-            duration: 0.3,
-            ease: "power2.in",
+            ...animation,
             onComplete: () => {
+              onAnimationComplete(); // Notify parent to change model
               gsap.set(modelRef.current, { x: -slideDirection, opacity: 0 });
-              gsap.to(modelRef.current, {
-                x: 0,
-                opacity: 1,
-                duration: 0.3,
-                ease: "power2.out",
-              });
+              gsap.to(modelRef.current, { x: 0, opacity: 1, ...animation });
             },
           });
           break;
         case "zoom":
           gsap.fromTo(
             modelRef.current,
-            { scale: 0.1, opacity: 0.9 },
+            { scale: 1, opacity: 1 },
             {
-              scale: 1,
-              opacity: 0.8,
-              duration: 0.5,
-              ease: "power2.out",
+              scale: 0.1,
+              opacity: 0,
+              ...animation,
               onComplete: () => {
+                onAnimationComplete(); // Notify parent to change model
                 gsap.to(modelRef.current, {
+                  scale: 1,
                   opacity: 1,
-                  duration: 0.5,
-                  ease: "power2.inOut",
+                  ...animation,
                 });
               },
             }
           );
           break;
         default:
+          onAnimationComplete();
           break;
       }
     }
-  }, [isFlipping, animationType, direccion]);
+  }, [isFlipping, animationType, direccion, onAnimationComplete]);
 
   return <div ref={modelRef}>{getModelComponent(currentModel)}</div>;
 };

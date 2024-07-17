@@ -1,0 +1,144 @@
+.mobile-control-panel {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #007bff;
+  color: white;
+  top: 0;
+  z-index: 1000;
+  overflow: hidden;
+  max-height: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  &.expanded {
+    max-height: 300px;
+  }
+
+  .mobile-control-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 5px 20px;
+
+    .view-toggle-button {
+      background-color: white;
+      color: #007bff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+        color: white;
+      }
+
+      .selected-flag {
+        margin-left: 10px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        transition: opacity 0.3s ease;
+      }
+    }
+  }
+
+  .language-selector {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding: 5px;
+
+    .selected-flag {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      transition: opacity 0.3s ease;
+    }
+
+    .flag-container {
+      display: flex;
+      gap: 10px;
+      position: absolute;
+      right: 0;
+      padding: 10px;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.1s ease;
+    }
+
+    &.open .flag-container {
+      transform: translateX(0);
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    &.open .selected-flag {
+      opacity: 0;
+    }
+
+    .flag {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+
+      &.active {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .mobile-control-content {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+
+    .animation-selector {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .animations {
+        display: flex;
+        gap: 10px;
+
+        .icon {
+          cursor: pointer;
+          width: 32px;
+          height: 32px;
+          transition: transform 0.3s ease;
+
+          &.active {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  }
+
+  .expand-icon {
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+}
