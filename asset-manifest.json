@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Curriculum/static/css/main.2a4225cb.css",
-    "main.js": "/Curriculum/static/js/main.96782ca1.js",
-    "static/js/417.83d8df03.chunk.js": "/Curriculum/static/js/417.83d8df03.chunk.js",
-    "static/js/661.78c8518a.chunk.js": "/Curriculum/static/js/661.78c8518a.chunk.js",
-    "static/js/646.d1916f9d.chunk.js": "/Curriculum/static/js/646.d1916f9d.chunk.js",
+    "main.css": "/Curriculum/static/css/main.b37b1003.css",
+    "main.js": "/Curriculum/static/js/main.e0a52b59.js",
+    "static/js/417.96ec9259.chunk.js": "/Curriculum/static/js/417.96ec9259.chunk.js",
+    "static/js/661.8b469f19.chunk.js": "/Curriculum/static/js/661.8b469f19.chunk.js",
+    "static/js/646.777b9d83.chunk.js": "/Curriculum/static/js/646.777b9d83.chunk.js",
     "static/media/imagenExperiencia.jpg": "/Curriculum/static/media/imagenExperiencia.4c2492a1d2b6896b1192.jpg",
     "static/media/imagenSkills.jpg": "/Curriculum/static/media/imagenSkills.291d00dfc482c2cf6dbd.jpg",
     "static/media/imagenIdiomas.jpg": "/Curriculum/static/media/imagenIdiomas.49a2b3c96da6772274f8.jpg",
@@ -13,11 +13,11 @@
     "static/media/expand.png": "/Curriculum/static/media/expand.799439d17aca2b35fa4b.png",
     "static/media/enFlag.png": "/Curriculum/static/media/enFlag.f84db42bea5c7e36cd4e.png",
     "index.html": "/Curriculum/index.html",
-    "main.2a4225cb.css.map": "/Curriculum/static/css/main.2a4225cb.css.map",
-    "main.96782ca1.js.map": "/Curriculum/static/js/main.96782ca1.js.map"
+    "main.b37b1003.css.map": "/Curriculum/static/css/main.b37b1003.css.map",
+    "main.e0a52b59.js.map": "/Curriculum/static/js/main.e0a52b59.js.map"
   },
   "entrypoints": [
-    "static/css/main.2a4225cb.css",
-    "static/js/main.96782ca1.js"
+    "static/css/main.b37b1003.css",
+    "static/js/main.e0a52b59.js"
   ]
 }
