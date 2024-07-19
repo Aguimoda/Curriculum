@@ -1,50 +1,20 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../../../styles/componentes/Card.scss";
-import SeccionExperiencia from "./SeccionExperiencia";
-import SeccionEducacion from "./SeccionEducacion";
-import SeccionConocimientos from "./SeccionConocimientos";
-import SeccionIdiomas from "./SeccionIdiomas";
 
 const Card = ({ section, data, title }) => {
   const [flipped, setFlipped] = useState(false);
-  const [expandedSubsection, setExpandedSubsection] = useState(null);
-  const [showMore, setShowMore] = useState({});
+  const [expandedSubsection, setExpandedSubsection] = useState({});
   const [scrollHover, setScrollHover] = useState(false);
+
   const frontRef = useRef(null);
   const backRef = useRef(null);
   const cardRef = useRef(null);
 
   const handleFlip = (e) => {
-    e.stopPropagation();
-    setFlipped(!flipped);
-  };
-
-  const handleExpandSubsection = (subsection) => {
-    setExpandedSubsection((prevSubsection) =>
-      prevSubsection === subsection ? null : subsection
-    );
-  };
-
-  const handleShowMore = (index) => {
-    setShowMore((prevState) => ({
-      ...prevState,
-      [`${section}-${index}`]: !prevState[`${section}-${index}`],
-    }));
-  };
-
-  useEffect(() => {
-    if (flipped) {
-      if (backRef.current) {
-        backRef.current.style.position = "relative";
-      }
-    } else {
-      setTimeout(() => {
-        if (backRef.current) {
-          backRef.current.style.position = "absolute";
-        }
-      }, 600);
+    if (!e.target.classList.contains("show-more-button")) {
+      setFlipped(!flipped);
     }
-  }, [flipped]);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -66,7 +36,7 @@ const Card = ({ section, data, title }) => {
         });
       },
       {
-        threshold: 0.9999999999999999999999, // Ajusta este valor según sea necesario
+        threshold: 1.0,
       }
     );
 
@@ -82,70 +52,130 @@ const Card = ({ section, data, title }) => {
     };
   }, []);
 
+  const handleExpandSubsection = (index) => {
+    setExpandedSubsection((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
+
+  const renderContent = (item, index) => {
+    switch (section) {
+      case "experience":
+        return (
+          <div>
+            <h3>{item.puesto}</h3>
+            <p>{item.duracion}</p>
+            <div
+              className={`wrapper ${
+                expandedSubsection[index] ? "is-open" : ""
+              }`}
+            >
+              <div className="inner">
+                <ul>
+                  {item.labores.map((labor, i) => (
+                    <li key={i}>{labor}</li>
+                  ))}
+                </ul>
+              </div>
+              {item.labores.length > 1 && (
+                <button
+                  className="show-more-button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleExpandSubsection(index);
+                  }}
+                >
+                  {expandedSubsection[index] ? "Mostrar menos" : "Mostrar más"}
+                </button>
+              )}
+            </div>
+          </div>
+        );
+      case "education":
+        return (
+          <div>
+            <h3>{item.titulo}</h3>
+            <p>{item.institucion}</p>
+            <p>{item.duracion}</p>
+            <div
+              className={`wrapper ${
+                expandedSubsection[index] ? "is-open" : ""
+              }`}
+            >
+              <div className="inner">
+                <p>{item.descripcion}</p>
+              </div>
+              {item.descripcion && (
+                <button
+                  className="show-more-button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleExpandSubsection(index);
+                  }}
+                >
+                  {expandedSubsection[index] ? "Mostrar menos" : "Mostrar más"}
+                </button>
+              )}
+            </div>
+          </div>
+        );
+      case "skills":
+        return (
+          <div>
+            <h3>{item.nombre}</h3>
+          </div>
+        );
+      case "languages":
+        return (
+          <div>
+            <h3>{item.nombre}</h3>
+            <p>{item.nivel}</p>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div
-      ref={cardRef}
       className={`card ${flipped ? "flipped" : ""} ${
         scrollHover ? "hover" : ""
       }`}
       onClick={handleFlip}
+      ref={cardRef}
     >
       <div className="card-inner">
-        <div className="card-front" ref={frontRef}>
-          <h2 className={`item ${section} ${scrollHover ? "hover" : ""}`}>
-            {title}
-          </h2>
+        <div
+          className={`card-front ${flipped ? "" : "is-open"}`}
+          ref={frontRef}
+        >
+          <div className={`wrapper ${flipped ? "" : "is-open"}`}>
+            <h2
+              className={`inner item ${section} ${scrollHover ? "hover" : ""}`}
+            >
+              {title}
+            </h2>
+          </div>
         </div>
-        <div className="card-back" ref={backRef}>
-          {data.map((item, index) => (
-            <div key={index} className="subsection-container">
-              <div
-                className={`subsection ${
-                  expandedSubsection === `${section}-${index}` ? "expanded" : ""
-                }`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleExpandSubsection(`${section}-${index}`);
-                }}
-              >
-                {section === "experience" && (
-                  <SeccionExperiencia
-                    title={item.puesto}
-                    period={item.duracion}
-                    details={
-                      showMore[`${section}-${index}`]
-                        ? Array.isArray(item.labores)
-                          ? item.labores.join(", ")
-                          : item.labores
-                        : ""
-                    }
-                  />
-                )}
-                {section === "education" && <SeccionEducacion {...item} />}
-                {section === "skills" && (
-                  <SeccionConocimientos
-                    conocimientos={
-                      showMore[`${section}-${index}`]
-                        ? item.conocimientos
-                        : item.conocimientos.slice(0, 5)
-                    }
-                  />
-                )}
-                {section === "languages" && <SeccionIdiomas {...item} />}
-              </div>
-              <button
-                className="show-more-button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleShowMore(index);
-                }}
-              >
-                {showMore[`${section}-${index}`]
-                  ? "Mostrar menos"
-                  : "Mostrar más"}
-              </button>
+        <div
+          className={`card-back ${flipped ? "is-open" : ""}`}
+          ref={backRef}
+          onClick={(e) => {
+            if (!e.target.classList.contains("show-more-button")) {
+              handleFlip(e);
+            }
+            e.stopPropagation();
+          }}
+        >
+          <div className={`wrapper ${flipped ? "is-open" : ""}`}>
+            <div className="inner">
+              {data.map((item, index) => (
+                <div key={index}>{renderContent(item, index)}</div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

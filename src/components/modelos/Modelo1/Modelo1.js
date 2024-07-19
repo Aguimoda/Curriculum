@@ -30,14 +30,31 @@ const Modelo1 = ({ language }) => {
   return (
     <div className="modelo1">
       <main className="container">
-        <Card section="experience" data={experiencia} title={secciones[1]} />
-        <Card section="education" data={educacion} title={secciones[2]} />
-        <Card
-          section="skills"
-          data={[{ conocimientos }]}
-          title={secciones[3]}
-        />
-        <Card section="languages" data={idiomas} title={secciones[4]} />
+        {secciones.length > 1 && (
+          <Card section="experience" data={experiencia} title={secciones[1]} />
+        )}
+        {secciones.length > 2 && (
+          <Card section="education" data={educacion} title={secciones[2]} />
+        )}
+        {secciones.length > 3 && (
+          <Card
+            section="skills"
+            data={conocimientos.map((conocimiento) => ({
+              nombre: conocimiento,
+            }))}
+            title={secciones[3]}
+          />
+        )}
+        {secciones.length > 4 && (
+          <Card
+            section="languages"
+            data={idiomas.map((idioma) => ({
+              nombre: idioma.idioma,
+              nivel: idioma.nivel,
+            }))}
+            title={secciones[4]}
+          />
+        )}
       </main>
     </div>
   );

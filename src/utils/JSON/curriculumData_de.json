@@ -1,58 +1,90 @@
 {
   "nombre": "Daniel Moreno",
-  "descripcion": "24 Jahre alt, Front-End-Student mit freiberuflicher Erfahrung in der Webentwicklung und Kenntnissen in mehreren Programmiersprachen. Ich bin eine sehr neugierige, analytische und kreative Person.",
+  "descripcion": "25 Jahre alt, Front-End-Entwickler mit freiberuflicher Erfahrung in der Website-Entwicklung und Kenntnissen in verschiedenen Programmiersprachen. Ich bin eine sehr neugierige, analytische und kreative Person, die stets nach neuen Möglichkeiten sucht, um zu lernen und sich beruflich weiterzuentwickeln.",
   "experiencia": [
     {
-      "puesto": "Verkäufer/IT-Spezialist",
-      "empresa": "",
+      "puesto": "Schichtleiter/IT-Spezialist",
+      "empresa": "Richard John GmbH",
       "duracion": "2023 bis heute",
       "labores": [
-        "Steigerung des Umsatzes um 10% durch Optimierung der Unternehmenslogistik.",
-        "Experte in Geräteverwaltung (Android, Windows) und Cloud-Diensten (Google Drive).",
-        "Deutliche Produktivitätssteigerung durch Automatisierung in Cloud-Diensten."
+        "Steigerung der Verkäufe um 10 % durch Optimierung der Logistik und Verbesserung des Geräte- und Cloud-Service-Managements.",
+        "Verwaltung von Android- und Windows-Geräten, Sicherstellung ihrer Integration und Funktionalität.",
+        "Nutzung von Google Drive zur Verbesserung der Datenverwaltung und Zugänglichkeit.",
+        "Digitalisierung interner Prozesse, Steigerung der Effizienz und Koordination.",
+        "Leitung von Teams mit 5-25 Mitgliedern, Organisation von Aufgaben, Bereitstellung von Werkzeugen und Schulungen sowie Aufrechterhaltung einer hohen Produktivität und Moral."
       ]
     },
     {
-      "puesto": "Koch/Ladenmanager",
-      "empresa": "",
-      "duracion": "2019-2021",
+      "puesto": "Filialleiter",
+      "empresa": "Nuvola Boadilla",
+      "duracion": "2020-2021",
       "labores": [
-        "Verwaltung der Planung und Durchführung der Eisherstellung.",
-        "Überwachung des Teams für optimale Leistung und Zusammenarbeit.",
-        "Pflege von Kundenbeziehungen für Serviceexzellenz."
+        "Betriebsmanagement: Optimierung des Inventars und des Personals, Rationalisierung der Abläufe zur Verbesserung der Gesamteffizienz der Filiale.",
+        "Kundendienst: Aufrechterhaltung eines hohen Niveaus im Kundenservice, Bearbeitung von Kundenanfragen und effektive Lösung von Problemen.",
+        "Verkaufsverbesserung: Beitrag zum Umsatzwachstum durch effektives Teammanagement und überlegenen Kundenservice."
       ]
     }
   ],
   "educacion": [
     {
-      "titulo": "Webentwicklung",
+      "titulo": "Höheres Nationales Diplom in Multiplattform-Anwendungsentwicklung",
       "institucion": "CIDEAD",
-      "duracion": "2022-2023"
+      "duracion": "2022 bis heute",
+      "descripcion": "Entwicklung von Fähigkeiten in der Erstellung und Verwaltung von Datenbanken, HTML und CSS für die Webentwicklung sowie in der Verwendung von SQL und XML für die Datenmanipulation und den Austausch."
     },
     {
-      "titulo": "App-Entwicklung",
-      "institucion": "Schule Retamar",
-      "duracion": "2019-2020"
-    },
-    {
-      "titulo": "Informatik",
-      "institucion": "Technische Universität Madrid",
-      "duracion": "2016-2019"
+      "titulo": "Höheres Nationales Diplom in Web-Anwendungsentwicklung",
+      "institucion": "Retamar School",
+      "duracion": "2020-2021",
+      "descripcion": "Entwicklung von Fähigkeiten im serverseitigen Scripting mit PHP, Webentwicklung mit HTML, CSS und JavaScript sowie Datenbankverwaltung mit MySQL. Versionskontrolle mit Git und Erstellung von responsiven Designs mit Frameworks wie Bootstrap. Erfahrung in der Bereitstellung und Wartung von Webanwendungen auf Servern."
     }
   ],
   "conocimientos": [
     "CSS",
     "JavaScript",
     "HTML",
-    "NODE",
+    "Node",
     "PHP",
     "WordPress",
-    "React"
+    "React",
+    "SQL",
+    "Git",
+    "C/C++",
+    "Java",
+    "Python"
   ],
   "idiomas": [
     { "idioma": "Spanisch", "nivel": "Muttersprache" },
-    { "idioma": "Englisch", "nivel": "Zweisprachigkeit" },
+    { "idioma": "Englisch", "nivel": "Zweisprachig" },
     { "idioma": "Deutsch", "nivel": "Fließend" }
   ],
-  "secciones": ["Über Mich", "Erfahrung", "Bildung", "Kenntnisse", "Sprachen"]
+  "secciones": [
+    "Beschreibung",
+    "Erfahrung",
+    "Bildung",
+    "Fähigkeiten",
+    "Sprachen",
+    "Freiwilligenarbeit",
+    "Kontakt",
+    "Verschiedenes"
+  ],
+  "contacto": {
+    "telefono": "0049 0176 20163265",
+    "email": "daniel.morenoparticular@gmail.com",
+    "direccion": "Feldbrunnenstr., Hamburg",
+    "github": "https://github.com/Aguimoda"
+  },
+  "voluntariado": [
+    {
+      "organizacion": "Sammatz, Neu Darchau",
+      "duracion": "Okt - Nov 2021"
+    }
+  ],
+  "miscelaneo": [
+    "Begeisterter Fotograf",
+    "Klassensprecher während meiner Berufsausbildung",
+    "Umfangreiche Erfahrung mit Linux-Systemen",
+    "Freiberufliche Entwicklung einiger Websites ('Las 3 Mulas')",
+    "Projekte mit der OpenAI-API: Integration in Webseiten sowie der Bau eines Chatbots mit Spracherkennung, Sprach- und Texterzeugung"
+  ]
 }

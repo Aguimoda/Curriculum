@@ -5,15 +5,7 @@ import perfilImage from "../../../utils/images/perfil.jpg";
 import "../../../styles/componentes/modelos/Modelo2.scss";
 
 const Modelo2 = ({ language }) => {
-  const [curriculumData, setCurriculumData] = useState({
-    nombre: "",
-    descripcion: "",
-    experiencia: [],
-    educacion: [],
-    conocimientos: [],
-    idiomas: [],
-    secciones: [],
-  });
+  const [curriculumData, setCurriculumData] = useState(null);
   const [hoveredSection, setHoveredSection] = useState(null);
 
   useEffect(() => {
@@ -25,7 +17,7 @@ const Modelo2 = ({ language }) => {
         setCurriculumData(data.default);
       } catch (error) {
         console.error("Failed to load curriculum data:", error);
-        setCurriculumData({ experiencia: [], educacion: [] });
+        setCurriculumData(null);
       }
     };
 
@@ -40,6 +32,10 @@ const Modelo2 = ({ language }) => {
     setHoveredSection(null);
   };
 
+  if (!curriculumData) {
+    return <div>Loading...</div>; // O algún otro indicador de carga o error.
+  }
+
   const {
     nombre,
     descripcion,
@@ -47,7 +43,7 @@ const Modelo2 = ({ language }) => {
     educacion,
     conocimientos,
     idiomas,
-    secciones,
+    secciones = [], // Asegurarse de que `secciones` tenga un valor por defecto si no está definido
   } = curriculumData;
 
   return (
@@ -65,60 +61,85 @@ const Modelo2 = ({ language }) => {
       </div>
       <main className="content">
         <div className="column">
-          <section
-            id="experience"
-            className="animated-section"
-            onMouseEnter={() => handleMouseEnter("experience")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <h2 className="text-content">{secciones[1]}</h2>
-            {experiencia.map((exp, index) => (
-              <SeccionExperiencia
-                key={index}
-                title={exp.puesto}
-                period={exp.duracion}
-                details={exp.labores}
-                className="text-content"
-              />
-            ))}
-          </section>
-          <section
-            id="languages"
-            className="animated-section"
-            onMouseEnter={() => handleMouseEnter("languages")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <h2 className="text-content">{secciones[4]}</h2>
-            <p className="text-content">{idiomas?.join(", ")}</p>
-          </section>
+          {secciones.length > 1 && (
+            <section
+              id="experience"
+              className={`animated-section ${
+                hoveredSection === "experience" ? "hovered" : ""
+              }`}
+              onMouseEnter={() => handleMouseEnter("experience")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <h2 className="text-content">{secciones[1]}</h2>
+              {experiencia.map((exp, index) => (
+                <div key={index} className="text-content">
+                  <SeccionExperiencia
+                    title={exp.puesto}
+                    period={exp.duracion}
+                    details={exp.labores}
+                  />
+                </div>
+              ))}
+            </section>
+          )}
+          {secciones.length > 4 && (
+            <section
+              id="languages"
+              className={`animated-section ${
+                hoveredSection === "languages" ? "hovered" : ""
+              }`}
+              onMouseEnter={() => handleMouseEnter("languages")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <h2 className="text-content">{secciones[4]}</h2>
+              <ul className="text-content">
+                {idiomas.map((idioma, index) => (
+                  <li key={index}>{`${idioma.idioma} - ${idioma.nivel}`}</li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
         <div className="column">
-          <section
-            id="education"
-            className="animated-section"
-            onMouseEnter={() => handleMouseEnter("education")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <h2 className="text-content">{secciones[2]}</h2>
-            {educacion.map((edu, index) => (
-              <SeccionEducacion
-                key={index}
-                titulo={edu.titulo}
-                institution={edu.institucion}
-                duration={edu.duracion}
-                className="text-content"
-              />
-            ))}
-          </section>
-          <section
-            id="skills"
-            className="animated-section"
-            onMouseEnter={() => handleMouseEnter("skills")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <h2 className="text-content">{secciones[3]}</h2>
-            <p className="text-content">{conocimientos?.join(", ")}</p>
-          </section>
+          {secciones.length > 2 && (
+            <section
+              id="education"
+              className={`animated-section ${
+                hoveredSection === "education" ? "hovered" : ""
+              }`}
+              onMouseEnter={() => handleMouseEnter("education")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <h2 className="text-content">{secciones[2]}</h2>
+              {educacion.map((edu, index) => (
+                <div key={index} className="text-content">
+                  <SeccionEducacion
+                    titulo={edu.titulo}
+                    institution={edu.institucion}
+                    duration={edu.duracion}
+                    description={edu.descripcion}
+                  />
+                </div>
+              ))}
+            </section>
+          )}
+          {secciones.length > 3 && (
+            <section
+              id="skills"
+              className={`animated-section ${
+                hoveredSection === "skills" ? "hovered" : ""
+              }`}
+              onMouseEnter={() => handleMouseEnter("skills")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <h2 className="text-content">{secciones[3]}</h2>
+              <ul className="text-content">
+                {conocimientos.map((conocimiento, index) => (
+                  <li key={index}>{conocimiento}</li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
       </main>
     </div>

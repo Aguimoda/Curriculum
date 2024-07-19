@@ -1,23 +1,25 @@
 {
   "nombre": "Daniel Moreno",
-  "descripcion": "24 años, estudiante de Front-End con experiencia freelance en desarrollo web y habilidades en varios lenguajes de programación. Soy una persona muy curiosa, analítica y creativa.",
+  "descripcion": "25 años, desarrollador front-end con experiencia freelance en desarrollo de sitios web y conocimientos en varios lenguajes de programación. Soy una persona muy curiosa, analítica y creativa siempre en busca de nuevas oportunidades para aprender y crecer profesionalmente.",
   "experiencia": [
     {
-      "puesto": "Vendedor/Especialista IT",
-      "empresa": "",
+      "puesto": "Responsable de turno/Especialista IT",
+      "empresa": "Richard John GmbH",
       "duracion": "2023 hasta la fecha",
       "labores": [
         "Incremento de ventas en un 10% mediante la optimización de la logística de la empresa.",
-        "Experto en gestión de dispositivos (Android, Windows) y servicios en la nube (Google Drive).",
-        "Mejora significativa de la productividad mediante la automatización en servicios en la nube."
+        "Gestión de dispositivos Android y Windows, garantizando su integración y funcionalidad.",
+        "Utilización de Google Drive para mejorar la gestión de datos y la accesibilidad.",
+        "Digitalización de los procesos internos, impulsando la eficiencia y la coordinación.",
+        "Liderazgo de equipos de 5 a 25 miembros, organizando tareas, proporcionando herramientas y formación, y manteniendo una alta productividad y moral."
       ]
     },
     {
-      "puesto": "Gerente de Tienda",
-      "empresa": "",
-      "duracion": "2019-2021",
+      "puesto": "Responsable de tienda",
+      "empresa": "Nuvola Boadilla",
+      "duracion": "2020-2021",
       "labores": [
-        "Gestión operativa: Optimización del inventario y el personal,  racionalización de las operaciones para mejorar la eficiencia general de la tienda.",
+        "Gestión operativa: Optimización del inventario y el personal, racionalización de las operaciones para mejorar la eficiencia general de la tienda.",
         "Atención al cliente: Mantenimiento de un alto nivel de atención al cliente, atendiendo a sus necesidades y resolviendo los problemas con eficacia.",
         "Mejora de las ventas: Contribución al crecimiento de las ventas mediante una gestión eficaz del equipo y un servicio de atención al cliente superior."
       ]
@@ -25,29 +27,31 @@
   ],
   "educacion": [
     {
-      "titulo": "Desarrollo Web",
+      "titulo": "Desarrollo de Aplicaciones Multiplataforma",
       "institucion": "CIDEAD",
-      "duracion": "2022-2023"
+      "duracion": "2022 hasta la fecha",
+      "descripcion": "Desarrollo de competencias en creación y gestión de bases de datos, HTML y CSS para desarrollo web, y uso de SQL y XML para manipulación e intercambio de datos."
     },
     {
-      "titulo": "Desarrollo de Aplicaciones",
+      "titulo": "Desarrollo de Aplicaciones Web",
       "institucion": "Escuela Retamar",
-      "duracion": "2019-2020"
-    },
-    {
-      "titulo": "Ingeniería Informática",
-      "institucion": "Universidad Politécnica de Madrid",
-      "duracion": "2016-2019"
+      "duracion": "2020-2021",
+      "descripcion": "Habilidades desarrolladas en scripting del lado del servidor con PHP, desarrollo web con HTML, CSS y JavaScript, y gestión de bases de datos con MySQL. Control de versiones con Git, y en la creación de diseños responsivos con frameworks como Bootstrap. Experiencia en el despliegue y mantenimiento de aplicaciones web en servidores."
     }
   ],
   "conocimientos": [
     "CSS",
     "JavaScript",
     "HTML",
-    "NODE",
+    "Node",
     "PHP",
     "WordPress",
-    "React"
+    "React",
+    "SQL",
+    "Git",
+    "C/C++",
+    "Java",
+    "Python"
   ],
   "idiomas": [
     { "idioma": "Español", "nivel": "Nativo" },
@@ -55,10 +59,32 @@
     { "idioma": "Alemán", "nivel": "Fluido" }
   ],
   "secciones": [
-    "Descripcion",
+    "Descripción",
     "Experiencia",
-    "Educacion",
+    "Educación",
     "Habilidades",
-    "Idiomas"
+    "Idiomas",
+    "Voluntariado",
+    "Contacto",
+    "Misceláneo"
+  ],
+  "contacto": {
+    "telefono": "0049 0176 20163265",
+    "email": "daniel.morenoparticular@gmail.com",
+    "direccion": "Feldbrunnenstr., Hamburg",
+    "github": "https://github.com/Aguimoda"
+  },
+  "voluntariado": [
+    {
+      "organizacion": "Sammatz, Neu Darchau",
+      "duracion": "Oct - Nov 2021"
+    }
+  ],
+  "miscelaneo": [
+    "Fotógrafo entusiasta",
+    "Delegado de clase durante mi formación profesional",
+    "Amplia experiencia con sistemas Linux",
+    "Desarrollo freelance de algunas webs ('Las 3 Mulas')",
+    "Proyectos con API OpenAI: Integración en páginas web, así como la construcción de un chatbot con reconocimiento de voz, generación de respuesta por voz y de texto"
   ]
 }
