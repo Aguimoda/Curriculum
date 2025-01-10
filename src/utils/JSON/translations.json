@@ -1,8 +1,8 @@
 {
   "en": {
-    "view_complete": "Full View",
-    "view_sections": "Sections View",
-    "more_options": "More Options",
+    "view_complete": "Change to Section View",
+    "view_sections": "Change to Full View",
+    "more_options": "Language and More Options",
     "close": "Close",
     "change_model": "Change Model",
     "fade": "Fade",
@@ -10,9 +10,9 @@
     "zoom": "Zoom"
   },
   "es": {
-    "view_complete": "Vista Completa",
-    "view_sections": "Vista Secciones",
-    "more_options": "Más Opciones",
+    "view_complete": "Cambiar a Vista por Secciones",
+    "view_sections": "Cambiar a Vista Completa",
+    "more_options": "Idioma y Más Opciones",
     "close": "Cerrar",
     "change_model": "Cambiar Modelo",
     "fade": "Desvanecer",
@@ -20,9 +20,9 @@
     "zoom": "Zoom"
   },
   "de": {
-    "view_complete": "Vollansicht",
-    "view_sections": "Abschnittsansicht",
-    "more_options": "Mehr Optionen",
+    "view_complete": "Zu Abschnittsansicht wechseln",
+    "view_sections": "Zu Vollansicht wechseln",
+    "more_options": "Sprache und mehr Optionen",
     "close": "Schließen",
     "change_model": "Modell wechseln",
     "fade": "Verblassen",

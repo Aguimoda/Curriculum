@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/componentes/DesktopControlPanel.scss";
 import enFlag from "../utils/images/enFlag.png";
 import esFlag from "../utils/images/esFlag.jpg";
 import deFlag from "../utils/images/deFlag.jpg";
+import arrowIcon from "../utils/images/expand.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAdjust,
   faSearchPlus,
   faArrowsAltH,
 } from "@fortawesome/free-solid-svg-icons";
+
+const flags = {
+  en: enFlag,
+  es: esFlag,
+  de: deFlag,
+};
 
 const DesktopControlPanel = ({
   toggleModel,
@@ -21,9 +28,60 @@ const DesktopControlPanel = ({
   currentModel,
   t,
 }) => {
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const languageRef = useRef(null);
+  const panelRef = useRef(null);
+
+  const handleLanguageClick = (e) => {
+    e.stopPropagation();
+    setIsLanguageOpen(!isLanguageOpen);
+  };
+
+  const closeLanguageMenu = () => {
+    setIsLanguageOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (languageRef.current && !languageRef.current.contains(event.target)) {
+        closeLanguageMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [languageRef]);
+
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+    setIsLanguageOpen(true); // Mantener el menú abierto
+  };
+
+  const handleExpandIconClick = (e) => {
+    e.stopPropagation();
+    toggleControls();
+  };
+  const handlePanelClick = (e) => {
+    // Verifica si el clic no se realizó en un botón o control específico
+    if (
+      !e.target.closest(".view-toggle-button") &&
+      !e.target.closest(".selected-flag") &&
+      !e.target.closest(".expand-icon") &&
+      !e.target.closest(".flag") &&
+      !e.target.closest(".icon")
+    ) {
+      toggleControls();
+    }
+  };
   return (
-    <div className={`control-panel ${isExpanded ? "expanded" : ""}`}>
-      <div className="control-header">
+    <div
+      className={`mobile-control-panel ${isExpanded ? "expanded" : ""}`}
+      onClick={handlePanelClick}
+      ref={panelRef}
+    >
+      <div className="mobile-control-header">
         <button
           className="view-toggle-button"
           onClick={(e) => {
@@ -35,40 +93,46 @@ const DesktopControlPanel = ({
             ? t("view_complete")
             : t("view_sections")}
         </button>
-        <button
-          className="expand-button"
-          onClick={(e) => {
-            e.stopPropagation();
-            toggleControls();
-          }}
+        <div
+          className={`language-selector ${isLanguageOpen ? "open" : ""}`}
+          onClick={handleLanguageClick}
+          ref={languageRef}
         >
-          {isExpanded ? t("close") : t("more_options")}
-        </button>
+          <img
+            src={flags[language]}
+            alt="Selected Language"
+            className="selected-flag"
+          />
+          <div className="flag-container" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={flags["en"]}
+              alt="English"
+              className={`flag ${language === "en" ? "active" : ""}`}
+              onClick={() => handleLanguageChange("en")}
+            />
+            <img
+              src={flags["es"]}
+              alt="Español"
+              className={`flag ${language === "es" ? "active" : ""}`}
+              onClick={() => handleLanguageChange("es")}
+            />
+            <img
+              src={flags["de"]}
+              alt="Deutsch"
+              className={`flag ${language === "de" ? "active" : ""}`}
+              onClick={() => handleLanguageChange("de")}
+            />
+          </div>
+        </div>
+        <img
+          src={arrowIcon}
+          alt="Expand/Collapse"
+          className="expand-icon"
+          onClick={handleExpandIconClick}
+        />
       </div>
       {isExpanded && (
-        <div className="control-content">
-          <div className="language-selector">
-            <div className="flags">
-              <img
-                src={enFlag}
-                alt="English"
-                className={`flag ${language === "en" ? "active" : ""}`}
-                onClick={() => setLanguage("en")}
-              />
-              <img
-                src={esFlag}
-                alt="Español"
-                className={`flag ${language === "es" ? "active" : ""}`}
-                onClick={() => setLanguage("es")}
-              />
-              <img
-                src={deFlag}
-                alt="Deutsch"
-                className={`flag ${language === "de" ? "active" : ""}`}
-                onClick={() => setLanguage("de")}
-              />
-            </div>
-          </div>
+        <div className="mobile-control-content">
           <div className="animation-selector">
             <div className="animations">
               <FontAwesomeIcon
