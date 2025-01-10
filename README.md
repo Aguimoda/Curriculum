@@ -1,7 +1,9 @@
 Bienvenido a mi Curriculum en línea
 
 
-Este proyecto es una aplicación web que muestra mi curriculum vitae de manera interactiva y personalizada. Fue creado utilizando React y cuenta con varias características que lo hacen único.
+Este proyecto es una aplicación web que muestra mi curriculum vitae de manera interactiva y personalizada. Fue creado utilizando React.
+
+Se puede visitar en http://Aguimoda.github.io/Curriculum
 
 
 Características
