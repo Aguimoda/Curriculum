@@ -1,9 +1,12 @@
 import React from "react";
 
-const SeccionIdiomas = ({ idioma, nivel }) => (
-  <div className="idiomas-section">
-    <h3>{idioma}</h3>
-    <p>{nivel}</p>
+const SeccionIdiomas = ({ data }) => (
+  <div className="seccion-idiomas">
+    {data.map((idioma, index) => (
+      <p key={index}>
+        {idioma.idioma}: {idioma.nivel}
+      </p>
+    ))}
   </div>
 );
 

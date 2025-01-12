@@ -60,8 +60,16 @@ const Card = ({ section, data, title }) => {
   };
 
   const renderContent = (item, index) => {
+    if (!item) return null;
+
     switch (section) {
-      case "experience":
+      case "sobre-mí":
+      case "about-me":
+      case "über-mich":
+        return <p>{item}</p>;
+      case "experiencia-relevante":
+      case "relevant-experience":
+      case "relevante-erfahrung":
         return (
           <div>
             <h3>{item.puesto}</h3>
@@ -92,7 +100,9 @@ const Card = ({ section, data, title }) => {
             </div>
           </div>
         );
+      case "educación":
       case "education":
+      case "bildung":
         return (
           <div>
             <h3>{item.titulo}</h3>
@@ -120,17 +130,54 @@ const Card = ({ section, data, title }) => {
             </div>
           </div>
         );
-      case "skills":
+      case "idiomas":
+      case "languages":
+      case "sprachen":
         return (
           <div>
-            <h3>{item.nombre}</h3>
+            <h3>{item.idioma}</h3>
+            <p>{item.nivel}</p>
           </div>
         );
-      case "languages":
+      case "lenguajes-de-programación":
+      case "programming-languages":
+      case "programmiersprachen":
         return (
           <div>
-            <h3>{item.nombre}</h3>
-            <p>{item.nivel}</p>
+            <h3>{item}</h3>
+          </div>
+        );
+      case "voluntariado":
+      case "volunteering":
+      case "freiwilligenarbeit":
+        return (
+          <div>
+            <p>{item.organizacion}</p>
+            <p>{item.duracion}</p>
+          </div>
+        );
+      case "intereses-y-proyectos":
+      case "interests-and-projects":
+      case "interessen-und-projekte":
+        return (
+          <div>
+            <p>{item}</p>
+          </div>
+        );
+      case "contacto":
+      case "contact":
+      case "kontakt":
+        return (
+          <div>
+            <p>Teléfono: {item.telefono}</p>
+            <p>Email: {item.email}</p>
+            <p>Dirección: {item.direccion}</p>
+            <p>
+              GitHub: <a href={item.github}>{item.github}</a>
+            </p>
+            <p>
+              LinkedIn: <a href={item.linkedin}>{item.linkedin}</a>
+            </p>
           </div>
         );
       default:
@@ -171,7 +218,7 @@ const Card = ({ section, data, title }) => {
         >
           <div className={`wrapper ${flipped ? "is-open" : ""}`}>
             <div className="inner">
-              {data.map((item, index) => (
+              {data && data.map((item, index) => (
                 <div key={index}>{renderContent(item, index)}</div>
               ))}
             </div>

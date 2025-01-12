@@ -1,13 +1,16 @@
 import React from "react";
 
-const SeccionEducacion = ({ titulo, institucion, duracion }) => {
-  return (
-    <div className="education-section">
-      <h3>{titulo}</h3>
-      <p className="institution">{institucion}</p>
-      <p className="duration">{duracion}</p>
-    </div>
-  );
-};
+const SeccionEducacion = ({ data }) => (
+  <div className="seccion-educacion">
+    {data.map((item, index) => (
+      <div key={index}>
+        <h3>{item.titulo}</h3>
+        <p>{item.institucion}</p>
+        <p>{item.duracion}</p>
+        <p>{item.descripcion}</p>
+      </div>
+    ))}
+  </div>
+);
 
 export default SeccionEducacion;
