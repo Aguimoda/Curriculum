@@ -9,6 +9,7 @@ import {
   faAdjust,
   faSearchPlus,
   faArrowsAltH,
+  faPaintBrush, // Import the new icon
 } from "@fortawesome/free-solid-svg-icons";
 
 const flags = {
@@ -27,6 +28,7 @@ const DesktopControlPanel = ({
   setAnimationType,
   currentModel,
   t,
+  toggleFullViewStyle, // Add the new prop
 }) => {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const languageRef = useRef(null);
@@ -92,6 +94,21 @@ const DesktopControlPanel = ({
           {currentModel === "sections"
             ? t("view_complete")
             : t("view_sections")}
+        </button>
+        <button
+          className="full-view-style-toggle-button"
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleFullViewStyle();
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faPaintBrush}
+            size="lg"
+            alt="Full View Style"
+            className="icon"
+          />
+          {t("toggle_full_view_style")}
         </button>
         <div
           className={`language-selector ${isLanguageOpen ? "open" : ""}`}

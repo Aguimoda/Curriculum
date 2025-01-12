@@ -14,6 +14,7 @@ const HomePage = () => {
   const [isFlipping, setIsFlipping] = useState(false);
   const [direccion, setDireccion] = useState("adelante");
   const [nextModel, setNextModel] = useState(null);
+  const [isFullViewStyle, setIsFullViewStyle] = useState(false); // Add state for full view style
 
   const curriculumRef = useRef();
 
@@ -26,6 +27,10 @@ const HomePage = () => {
     setNextModel(next);
     setDireccion(currentModel === modelos[1] ? "adelante" : "atras");
     setIsFlipping(true);
+  };
+
+  const toggleFullViewStyle = () => {
+    setIsFullViewStyle(!isFullViewStyle);
   };
 
   useEffect(() => {
@@ -50,6 +55,7 @@ const HomePage = () => {
         animationType={animationType}
         setAnimationType={setAnimationType}
         currentModel={currentModel}
+        toggleFullViewStyle={toggleFullViewStyle} // Pass the toggleFullViewStyle function
       />
       <div className="homepage-container" ref={curriculumRef}>
         <Header />
@@ -61,6 +67,7 @@ const HomePage = () => {
             isFlipping={isFlipping}
             direccion={direccion}
             onAnimationComplete={onAnimationComplete}
+            isFullViewStyle={isFullViewStyle} // Pass the isFullViewStyle state
           />
         </div>
         <Footer />

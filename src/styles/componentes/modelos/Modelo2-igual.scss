@@ -1,0 +1,72 @@
+$documentBgColor: #fff;
+$shadowColor: rgba(0, 0, 0, 0.1);
+$barColor: #333;
+
+.standard {
+  font-family: "Arial", sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: $documentBgColor;
+  box-shadow: 0 0 10px $shadowColor;
+  position: relative; // Para asegurar que las manchas se posicionen correctamente
+  transition: all 0.3s ease-in-out; // Añade transición general
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out; // Transición para el header
+  }
+
+  .profile-photo {
+    border-radius: 50%;
+    width: 150px;
+    transition: all 0.3s ease-in-out; // Transición para la foto
+  }
+
+  .header h1 {
+    margin: 0;
+    font-size: 24px;
+    transition: all 0.3s ease-in-out; // Transición para textos
+  }
+
+  .header p {
+    font-size: 14px;
+    transition: all 0.3s ease-in-out; // Transición para textos
+  }
+
+  .horizontal-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 20px 0;
+
+    .bar {
+      height: 2px;
+      background-color: $barColor;
+      transition: all 0.3s ease-in-out; // Transición para las barras
+    }
+  }
+
+  .content {
+    display: flex;
+    gap: 20px;
+  }
+
+  .column {
+    flex: 1;
+    position: relative; // Para asegurar que las manchas se posicionen correctamente
+  }
+
+  .column h2 {
+    margin-top: 0;
+  }
+
+  .animated-section {
+    position: relative;
+    overflow: hidden;
+    z-index: 2; // Para asegurar que el texto esté por encima de las manchas
+    transition: all 0.3s ease-in-out; // Transición para las secciones
+  }
+}

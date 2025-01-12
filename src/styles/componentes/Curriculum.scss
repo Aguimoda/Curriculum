@@ -5,3 +5,22 @@
 .flip-container {
   transition: transform 0.5s; /* Add CSS transition for transform */
 }
+
+.modelo2 {
+  transition: all 0.3s ease-in-out;
+  
+  * {
+    transition: inherit; // Hace que todos los elementos hijos hereden la transición
+  }
+}
+
+// Propiedades específicas que pueden necesitar transiciones más suaves
+.modelo2 {
+  .header,
+  .content,
+  .animated-section,
+  .profile-photo,
+  .bar {
+    transition: all 0.3s ease-in-out;
+  }
+}

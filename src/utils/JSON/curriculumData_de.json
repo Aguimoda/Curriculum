@@ -1,90 +1,109 @@
 {
-  "nombre": "Daniel Moreno",
-  "descripcion": "25 Jahre alt, Front-End-Entwickler mit freiberuflicher Erfahrung in der Website-Entwicklung und Kenntnissen in verschiedenen Programmiersprachen. Ich bin eine sehr neugierige, analytische und kreative Person, die stets nach neuen Möglichkeiten sucht, um zu lernen und sich beruflich weiterzuentwickeln.",
-  "experiencia": [
-    {
-      "puesto": "Schichtleiter/IT-Spezialist",
-      "empresa": "Richard John GmbH",
-      "duracion": "2023 bis heute",
-      "labores": [
-        "Steigerung der Verkäufe um 10 % durch Optimierung der Logistik und Verbesserung des Geräte- und Cloud-Service-Managements.",
-        "Verwaltung von Android- und Windows-Geräten, Sicherstellung ihrer Integration und Funktionalität.",
-        "Nutzung von Google Drive zur Verbesserung der Datenverwaltung und Zugänglichkeit.",
-        "Digitalisierung interner Prozesse, Steigerung der Effizienz und Koordination.",
-        "Leitung von Teams mit 5-25 Mitgliedern, Organisation von Aufgaben, Bereitstellung von Werkzeugen und Schulungen sowie Aufrechterhaltung einer hohen Produktivität und Moral."
-      ]
-    },
-    {
-      "puesto": "Filialleiter",
-      "empresa": "Nuvola Boadilla",
-      "duracion": "2020-2021",
-      "labores": [
-        "Betriebsmanagement: Optimierung des Inventars und des Personals, Rationalisierung der Abläufe zur Verbesserung der Gesamteffizienz der Filiale.",
-        "Kundendienst: Aufrechterhaltung eines hohen Niveaus im Kundenservice, Bearbeitung von Kundenanfragen und effektive Lösung von Problemen.",
-        "Verkaufsverbesserung: Beitrag zum Umsatzwachstum durch effektives Teammanagement und überlegenen Kundenservice."
-      ]
-    }
-  ],
-  "educacion": [
-    {
-      "titulo": "Höheres Nationales Diplom in Multiplattform-Anwendungsentwicklung",
-      "institucion": "CIDEAD",
-      "duracion": "2022 bis heute",
-      "descripcion": "Entwicklung von Fähigkeiten in der Erstellung und Verwaltung von Datenbanken, HTML und CSS für die Webentwicklung sowie in der Verwendung von SQL und XML für die Datenmanipulation und den Austausch."
-    },
-    {
-      "titulo": "Höheres Nationales Diplom in Web-Anwendungsentwicklung",
-      "institucion": "Retamar School",
-      "duracion": "2020-2021",
-      "descripcion": "Entwicklung von Fähigkeiten im serverseitigen Scripting mit PHP, Webentwicklung mit HTML, CSS und JavaScript sowie Datenbankverwaltung mit MySQL. Versionskontrolle mit Git und Erstellung von responsiven Designs mit Frameworks wie Bootstrap. Erfahrung in der Bereitstellung und Wartung von Webanwendungen auf Servern."
-    }
-  ],
-  "conocimientos": [
-    "CSS",
-    "JavaScript",
-    "HTML",
-    "Node",
-    "PHP",
-    "WordPress",
-    "React",
-    "SQL",
-    "Git",
-    "C/C++",
-    "Java",
-    "Python"
-  ],
-  "idiomas": [
-    { "idioma": "Spanisch", "nivel": "Muttersprache" },
-    { "idioma": "Englisch", "nivel": "Zweisprachig" },
-    { "idioma": "Deutsch", "nivel": "Fließend" }
-  ],
+  "nombre": "Daniel Moreno de Aguinaga",
+  "descripcion": "25 Jahre alt, Front-End-Entwickler, leidenschaftlich für Technologie, Innovation und kontinuierliches Lernen. Ich habe Herausforderungen gemeistert, wie z. B. nach Deutschland zu ziehen, ohne die Sprache zu beherrschen, und es geschafft, ein unabhängiges Leben aufzubauen, während ich ein Höheres Nationales Diplom in Web-Anwendungsentwicklung aus der Ferne abschloss. Dieser Weg hat meine Belastbarkeit, Anpassungsfähigkeit und meinen lösungsorientierten Ansatz gestärkt. Ich bin überzeugt von der Macht der Technologie, alltägliche Probleme in digitale Lösungen zu verwandeln. Mein Ziel ist es, funktionale und ansprechende Weboberflächen zu entwerfen, die die Benutzererfahrung verbessern. Ich freue mich darauf, an innovativen Projekten mitzuarbeiten, die modernste Technologien integrieren und einen positiven Einfluss haben.",
   "secciones": [
-    "Beschreibung",
-    "Erfahrung",
-    "Bildung",
-    "Fähigkeiten",
-    "Sprachen",
-    "Freiwilligenarbeit",
-    "Kontakt",
-    "Verschiedenes"
-  ],
-  "contacto": {
-    "telefono": "0049 0176 20163265",
-    "email": "daniel.morenoparticular@gmail.com",
-    "direccion": "Feldbrunnenstr., Hamburg",
-    "github": "https://github.com/Aguimoda"
-  },
-  "voluntariado": [
     {
-      "organizacion": "Sammatz, Neu Darchau",
-      "duracion": "Okt - Nov 2021"
+      "titulo": "Über Mich",
+      "contenido": "25 Jahre alt, Front-End-Entwickler, leidenschaftlich für Technologie, Innovation und kontinuierliches Lernen. Ich habe Herausforderungen gemeistert, wie z. B. nach Deutschland zu ziehen, ohne die Sprache zu beherrschen, und es geschafft, ein unabhängiges Leben aufzubauen, während ich ein Höheres Nationales Diplom in Web-Anwendungsentwicklung aus der Ferne abschloss. Dieser Weg hat meine Belastbarkeit, Anpassungsfähigkeit und meinen lösungsorientierten Ansatz gestärkt. Ich bin überzeugt von der Macht der Technologie, alltägliche Probleme in digitale Lösungen zu verwandeln. Mein Ziel ist es, funktionale und ansprechende Weboberflächen zu entwerfen, die die Benutzererfahrung verbessern. Ich freue mich darauf, an innovativen Projekten mitzuarbeiten, die modernste Technologien integrieren und einen positiven Einfluss haben."
+    },
+    {
+      "titulo": "Relevante Erfahrung",
+      "contenido": [
+        {
+          "puesto": "Schichtleiter/IT-Spezialist",
+          "empresa": "Richard John GmbH",
+          "duracion": "2023 bis heute",
+          "labores": [
+            "Implementierung digitaler Lösungen zur Optimierung von Logistikprozessen und Verbesserung des Cloud-Datenmanagements, was zu höherer Betriebseffizienz führte.",
+            "Koordination und Leitung von Teams mit 5-25 Personen, Organisation von Aufgaben, Bereitstellung digitaler Werkzeuge und Sicherstellung hoher Produktivität.",
+            "Einführung technologischer Tools, die die Kommunikation und Koordination zwischen Abteilungen vereinfachten."
+          ]
+        },
+        {
+          "puesto": "Filialleiter",
+          "empresa": "Nuvola Boadilla",
+          "duracion": "2020-2021",
+          "labores": [
+            "Betriebsführung eines Gastronomiebetriebs mit 3 Mitarbeitern.",
+            "Kundendienst.",
+            "Erhebliche Umsatzsteigerung."
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Bildung",
+      "contenido": [
+        {
+          "titulo": "Höheres Nationales Diplom in Multiplattform-Anwendungsentwicklung",
+          "institucion": "CIDEAD",
+          "duracion": "2022 bis heute",
+          "descripcion": "Entwicklung von Fähigkeiten in der Erstellung und Verwaltung von Datenbanken, HTML und CSS für die Webentwicklung sowie in der Verwendung von SQL und XML für die Datenmanipulation und den Austausch."
+        },
+        {
+          "titulo": "Höheres Nationales Diplom in Web-Anwendungsentwicklung",
+          "institucion": "Retamar School",
+          "duracion": "2020-2021",
+          "descripcion": "Fähigkeiten in serverseitigem Scripting mit PHP, Webentwicklung mit HTML, CSS und JavaScript sowie Datenbankverwaltung mit MySQL. Versionskontrolle mit Git, responsives Design mit Frameworks wie Bootstrap. Erfahrung in der Bereitstellung und Wartung von Webanwendungen auf Servern."
+        }
+      ]
+    },
+    {
+      "titulo": "Sprachen",
+      "contenido": [
+        { "idioma": "Spanisch", "nivel": "Muttersprache" },
+        { "idioma": "Englisch", "nivel": "Zweisprachig (C1)" },
+        { "idioma": "Deutsch", "nivel": "Fließend (B2)" }
+      ]
+    },
+    {
+      "titulo": "Programmiersprachen",
+      "contenido": [
+        "CSS",
+        "JavaScript",
+        "HTML",
+        "Node",
+        "PHP",
+        "WordPress",
+        "React",
+        "SQL",
+        "Git",
+        "C/C++",
+        "Java",
+        "Python"
+      ]
+    },
+    {
+      "titulo": "Freiwilligenarbeit",
+      "contenido": [
+        {
+          "organizacion": "Sammatz, Neu Darchau",
+          "duracion": "Okt - Nov 2021"
+        }
+      ]
+    },
+    {
+      "titulo": "Interessen und Projekte",
+      "contenido": [
+        "GitHub: https://github.com/Aguimoda",
+        "Online-Lebenslauf erstellt mit React.",
+        "Freiberufliche Entwicklung von Webseiten für kleine Unternehmen.",
+        "Integration von OpenAI-APIs in Webseiten und generativen Chatbots.",
+        "Begeisterter Fotograf und Musiker.",
+        "Erfahrung mit Linux-Systemen und Konsole.",
+        "Besonderes Interesse an Geschichte, Kultur und Geografie.",
+        "Künstliche Intelligenz, maschinelles Lernen und neuronale Netze."
+      ]
+    },
+    {
+      "titulo": "Kontakt",
+      "contenido": {
+        "telefono": "0049 0176 20163265",
+        "email": "daniel.morenoparticular@gmail.com",
+        "direccion": "Feldbrunnenstr., Hamburg, Deutschland",
+        "github": "https://github.com/Aguimoda",
+        "linkedin": "http://www.linkedin.com/in/daniel-moreno-de-aguinaga-12b7a41a1"
+      }
     }
-  ],
-  "miscelaneo": [
-    "Begeisterter Fotograf",
-    "Klassensprecher während meiner Berufsausbildung",
-    "Umfangreiche Erfahrung mit Linux-Systemen",
-    "Freiberufliche Entwicklung einiger Websites ('Las 3 Mulas')",
-    "Projekte mit der OpenAI-API: Integration in Webseiten sowie der Bau eines Chatbots mit Spracherkennung, Sprach- und Texterzeugung"
   ]
 }

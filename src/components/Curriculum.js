@@ -11,6 +11,8 @@ const Curriculum = ({
   isFlipping,
   direccion,
   onAnimationComplete,
+  isFullViewStyle, // Add the new prop
+  isModernStyle, // Add the new prop
 }) => {
   const modelRef = useRef();
 
@@ -18,7 +20,7 @@ const Curriculum = ({
     return modelName === "full" ? (
       <Modelo1 language={language} ref={modelRef} />
     ) : (
-      <Modelo2 language={language} ref={modelRef} />
+      <Modelo2 language={language} ref={modelRef} isFullViewStyle={isFullViewStyle} isModernStyle={isModernStyle} />
     );
   };
 

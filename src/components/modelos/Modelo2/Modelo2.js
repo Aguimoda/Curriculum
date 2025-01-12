@@ -4,7 +4,10 @@ import SeccionEducacion from "./SeccionEducacion";
 import perfilImage from "../../../utils/images/perfil.jpg";
 import "../../../styles/componentes/modelos/Modelo2.scss";
 
-const Modelo2 = ({ language }) => {
+import "../../../styles/componentes/modelos/Modelo2-estandar.scss";
+import "../../../styles/componentes/modelos/Modelo2-modern.scss";
+
+const Modelo2 = ({ language, isFullViewStyle }) => {
   const [curriculumData, setCurriculumData] = useState(null);
   const [hoveredSection, setHoveredSection] = useState(null);
 
@@ -39,15 +42,15 @@ const Modelo2 = ({ language }) => {
   const {
     nombre,
     descripcion,
-    experiencia,
-    educacion,
-    conocimientos,
-    idiomas,
     secciones = [], // Asegurarse de que `secciones` tenga un valor por defecto si no está definido
   } = curriculumData;
 
+  const filteredSecciones = secciones.filter(
+    (seccion) => seccion.titulo.toLowerCase() !== "sobre mí" && seccion.titulo.toLowerCase() !== "about me" && seccion.titulo.toLowerCase() !== "über mich"
+  );
+
   return (
-    <div className="modelo2">
+    <div className={`modelo2 ${isFullViewStyle ? "full-view-style" : "standard"}`}>
       <header className="header">
         <img src={perfilImage} alt="Daniel Moreno" className="profile-photo" />
         <div>
@@ -60,87 +63,81 @@ const Modelo2 = ({ language }) => {
         <div className="bar"></div>
       </div>
       <main className="content">
-        <div className="column">
-          {secciones.length > 1 && (
+        {filteredSecciones.map((seccion, index) => (
+          <div className="column" key={index}>
             <section
-              id="experience"
+              id={seccion.titulo.toLowerCase().replace(/\s+/g, "-")}
               className={`animated-section ${
-                hoveredSection === "experience" ? "hovered" : ""
+                hoveredSection === seccion.titulo ? "hovered" : ""
               }`}
-              onMouseEnter={() => handleMouseEnter("experience")}
+              onMouseEnter={() => handleMouseEnter(seccion.titulo)}
               onMouseLeave={handleMouseLeave}
             >
-              <h2 className="text-content">{secciones[1]}</h2>
-              {experiencia.map((exp, index) => (
-                <div key={index} className="text-content">
-                  <SeccionExperiencia
-                    title={exp.puesto}
-                    period={exp.duracion}
-                    details={exp.labores}
-                  />
+              <h2 className="text-content">{seccion.titulo}</h2>
+              {Array.isArray(seccion.contenido) ? (
+                seccion.contenido.map((item, idx) => (
+                  <div key={idx} className="text-content">
+                    {typeof item === "string" ? (
+                      <p>{item}</p>
+                    ) : (
+                      <>
+                        {item.puesto && (
+                          <SeccionExperiencia
+                            title={item.puesto}
+                            period={item.duracion}
+                            details={item.labores}
+                          />
+                        )}
+                        {item.titulo && (
+                          <SeccionEducacion
+                            titulo={item.titulo}
+                            institution={item.institucion}
+                            duration={item.duracion}
+                            description={item.descripcion}
+                          />
+                        )}
+                        {item.idioma && (
+                          <p>{`${item.idioma} - ${item.nivel}`}</p>
+                        )}
+                        {item.organizacion && (
+                          <p>{`${item.organizacion} - ${item.duracion}`}</p>
+                        )}
+                      </>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <div className="text-content">
+                  {typeof seccion.contenido === "string" ? (
+                    <p>{seccion.contenido}</p>
+                  ) : (
+                    <>
+                      {seccion.contenido.telefono && (
+                        <p>Teléfono: {seccion.contenido.telefono}</p>
+                      )}
+                      {seccion.contenido.email && (
+                        <p>Email: {seccion.contenido.email}</p>
+                      )}
+                      {seccion.contenido.direccion && (
+                        <p>Dirección: {seccion.contenido.direccion}</p>
+                      )}
+                      {seccion.contenido.github && (
+                        <p>
+                          GitHub: <a href={seccion.contenido.github}>{seccion.contenido.github}</a>
+                        </p>
+                      )}
+                      {seccion.contenido.linkedin && (
+                        <p>
+                          LinkedIn: <a href={seccion.contenido.linkedin}>{seccion.contenido.linkedin}</a>
+                        </p>
+                      )}
+                    </>
+                  )}
                 </div>
-              ))}
+              )}
             </section>
-          )}
-          {secciones.length > 4 && (
-            <section
-              id="languages"
-              className={`animated-section ${
-                hoveredSection === "languages" ? "hovered" : ""
-              }`}
-              onMouseEnter={() => handleMouseEnter("languages")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <h2 className="text-content">{secciones[4]}</h2>
-              <ul className="text-content">
-                {idiomas.map((idioma, index) => (
-                  <li key={index}>{`${idioma.idioma} - ${idioma.nivel}`}</li>
-                ))}
-              </ul>
-            </section>
-          )}
-        </div>
-        <div className="column">
-          {secciones.length > 2 && (
-            <section
-              id="education"
-              className={`animated-section ${
-                hoveredSection === "education" ? "hovered" : ""
-              }`}
-              onMouseEnter={() => handleMouseEnter("education")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <h2 className="text-content">{secciones[2]}</h2>
-              {educacion.map((edu, index) => (
-                <div key={index} className="text-content">
-                  <SeccionEducacion
-                    titulo={edu.titulo}
-                    institution={edu.institucion}
-                    duration={edu.duracion}
-                    description={edu.descripcion}
-                  />
-                </div>
-              ))}
-            </section>
-          )}
-          {secciones.length > 3 && (
-            <section
-              id="skills"
-              className={`animated-section ${
-                hoveredSection === "skills" ? "hovered" : ""
-              }`}
-              onMouseEnter={() => handleMouseEnter("skills")}
-              onMouseLeave={handleMouseLeave}
-            >
-              <h2 className="text-content">{secciones[3]}</h2>
-              <ul className="text-content">
-                {conocimientos.map((conocimiento, index) => (
-                  <li key={index}>{conocimiento}</li>
-                ))}
-              </ul>
-            </section>
-          )}
-        </div>
+          </div>
+        ))}
       </main>
     </div>
   );

@@ -1,90 +1,109 @@
 {
-  "nombre": "Daniel Moreno",
-  "descripcion": "25 años, desarrollador front-end con experiencia freelance en desarrollo de sitios web y conocimientos en varios lenguajes de programación. Soy una persona muy curiosa, analítica y creativa siempre en busca de nuevas oportunidades para aprender y crecer profesionalmente.",
-  "experiencia": [
-    {
-      "puesto": "Responsable de turno/Especialista IT",
-      "empresa": "Richard John GmbH",
-      "duracion": "2023 hasta la fecha",
-      "labores": [
-        "Incremento de ventas en un 10% mediante la optimización de la logística de la empresa.",
-        "Gestión de dispositivos Android y Windows, garantizando su integración y funcionalidad.",
-        "Utilización de Google Drive para mejorar la gestión de datos y la accesibilidad.",
-        "Digitalización de los procesos internos, impulsando la eficiencia y la coordinación.",
-        "Liderazgo de equipos de 5 a 25 miembros, organizando tareas, proporcionando herramientas y formación, y manteniendo una alta productividad y moral."
-      ]
-    },
-    {
-      "puesto": "Responsable de tienda",
-      "empresa": "Nuvola Boadilla",
-      "duracion": "2020-2021",
-      "labores": [
-        "Gestión operativa: Optimización del inventario y el personal, racionalización de las operaciones para mejorar la eficiencia general de la tienda.",
-        "Atención al cliente: Mantenimiento de un alto nivel de atención al cliente, atendiendo a sus necesidades y resolviendo los problemas con eficacia.",
-        "Mejora de las ventas: Contribución al crecimiento de las ventas mediante una gestión eficaz del equipo y un servicio de atención al cliente superior."
-      ]
-    }
-  ],
-  "educacion": [
-    {
-      "titulo": "Desarrollo de Aplicaciones Multiplataforma",
-      "institucion": "CIDEAD",
-      "duracion": "2022 hasta la fecha",
-      "descripcion": "Desarrollo de competencias en creación y gestión de bases de datos, HTML y CSS para desarrollo web, y uso de SQL y XML para manipulación e intercambio de datos."
-    },
-    {
-      "titulo": "Desarrollo de Aplicaciones Web",
-      "institucion": "Escuela Retamar",
-      "duracion": "2020-2021",
-      "descripcion": "Habilidades desarrolladas en scripting del lado del servidor con PHP, desarrollo web con HTML, CSS y JavaScript, y gestión de bases de datos con MySQL. Control de versiones con Git, y en la creación de diseños responsivos con frameworks como Bootstrap. Experiencia en el despliegue y mantenimiento de aplicaciones web en servidores."
-    }
-  ],
-  "conocimientos": [
-    "CSS",
-    "JavaScript",
-    "HTML",
-    "Node",
-    "PHP",
-    "WordPress",
-    "React",
-    "SQL",
-    "Git",
-    "C/C++",
-    "Java",
-    "Python"
-  ],
-  "idiomas": [
-    { "idioma": "Español", "nivel": "Nativo" },
-    { "idioma": "Inglés", "nivel": "Bilingüe" },
-    { "idioma": "Alemán", "nivel": "Fluido" }
-  ],
+  "nombre": "Daniel Moreno de Aguinaga",
+  "descripcion": "25 años, desarrollador front-end apasionado por la tecnología, la innovación y el aprendizaje continuo. Afronté desafíos como emigrar a Alemania sin conocimientos previos del idioma, donde logré construir una vida independiente mientras completaba a distancia el Grado Superior en Desarrollo de Aplicaciones Web. Este camino ha fortalecido mi resiliencia, adaptabilidad y enfoque resolutivo. Estoy convencido del poder de la tecnología para transformar problemas cotidianos en soluciones digitales. Mi objetivo es diseñar interfaces web funcionales y atractivas que mejoren la experiencia del usuario. Me entusiasma colaborar en proyectos innovadores que integren tecnología de vanguardia y generen un impacto positivo.",
   "secciones": [
-    "Descripción",
-    "Experiencia",
-    "Educación",
-    "Habilidades",
-    "Idiomas",
-    "Voluntariado",
-    "Contacto",
-    "Misceláneo"
-  ],
-  "contacto": {
-    "telefono": "0049 0176 20163265",
-    "email": "daniel.morenoparticular@gmail.com",
-    "direccion": "Feldbrunnenstr., Hamburg",
-    "github": "https://github.com/Aguimoda"
-  },
-  "voluntariado": [
     {
-      "organizacion": "Sammatz, Neu Darchau",
-      "duracion": "Oct - Nov 2021"
+      "titulo": "Sobre Mí",
+      "contenido": "25 años, desarrollador front-end apasionado por la tecnología, la innovación y el aprendizaje continuo. Afronté desafíos como emigrar a Alemania sin conocimientos previos del idioma, donde logré construir una vida independiente mientras completaba a distancia el Grado Superior en Desarrollo de Aplicaciones Web. Este camino ha fortalecido mi resiliencia, adaptabilidad y enfoque resolutivo. Estoy convencido del poder de la tecnología para transformar problemas cotidianos en soluciones digitales. Mi objetivo es diseñar interfaces web funcionales y atractivas que mejoren la experiencia del usuario. Me entusiasma colaborar en proyectos innovadores que integren tecnología de vanguardia y generen un impacto positivo."
+    },
+    {
+      "titulo": "Experiencia Relevante",
+      "contenido": [
+        {
+          "puesto": "Responsable de turno/Especialista IT",
+          "empresa": "Richard John GmbH",
+          "duracion": "2023 hasta la fecha",
+          "labores": [
+            "Implementé soluciones digitales para optimizar procesos logísticos y mejorar la gestión de datos en la nube, logrando una mayor eficiencia operativa.",
+            "Coordiné y lideré equipos de 5 a 25 personas, organizando tareas, proporcionando herramientas digitales y asegurando altos niveles de productividad.",
+            "Introduje herramientas tecnológicas que simplificaron la comunicación y coordinación entre departamentos."
+          ]
+        },
+        {
+          "puesto": "Responsable de tienda",
+          "empresa": "Nuvola Boadilla",
+          "duracion": "2020-2021",
+          "labores": [
+            "Gestión operativa de un local de restauración con 3 empleados.",
+            "Atención al cliente.",
+            "Mejora significativa de las ventas."
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Educación",
+      "contenido": [
+        {
+          "titulo": "Desarrollo de Aplicaciones Multiplataforma",
+          "institucion": "CIDEAD",
+          "duracion": "2022 hasta la fecha",
+          "descripcion": "Desarrollo de competencias en creación y gestión de bases de datos, HTML y CSS para desarrollo web, y uso de SQL y XML para manipulación e intercambio de datos."
+        },
+        {
+          "titulo": "Desarrollo de Aplicaciones Web",
+          "institucion": "Retamar School",
+          "duracion": "2020-2021",
+          "descripcion": "Habilidades desarrolladas en scripting del lado del servidor con PHP, desarrollo web con HTML, CSS y JavaScript, y gestión de bases de datos con MySQL. Control de versiones con Git, diseño responsivo con frameworks como Bootstrap y despliegue y mantenimiento de aplicaciones web en servidores."
+        }
+      ]
+    },
+    {
+      "titulo": "Idiomas",
+      "contenido": [
+        { "idioma": "Español", "nivel": "Nativo" },
+        { "idioma": "Inglés", "nivel": "Bilingüe (C1)" },
+        { "idioma": "Alemán", "nivel": "Fluido (B2)" }
+      ]
+    },
+    {
+      "titulo": "Lenguajes de Programación",
+      "contenido": [
+        "CSS",
+        "JavaScript",
+        "HTML",
+        "Node",
+        "PHP",
+        "WordPress",
+        "React",
+        "SQL",
+        "Git",
+        "C/C++",
+        "Java",
+        "Python"
+      ]
+    },
+    {
+      "titulo": "Voluntariado",
+      "contenido": [
+        {
+          "organizacion": "Sammatz, Neu Darchau",
+          "duracion": "Oct - Nov 2021"
+        }
+      ]
+    },
+    {
+      "titulo": "Intereses y Proyectos",
+      "contenido": [
+        "GitHub: https://github.com/Aguimoda",
+        "Currículum en línea hecho en React",
+        "Desarrollo freelance de páginas web para pequeñas empresas.",
+        "Integración de APIs de OpenAI en páginas web y chatbots generativos.",
+        "Fotógrafo y músico entusiasta.",
+        "Experiencia en sistemas y consola Linux.",
+        "Especial interés en Historia, cultura y geografía.",
+        "Inteligencia artificial, machine learning y redes neuronales."
+      ]
+    },
+    {
+      "titulo": "Contacto",
+      "contenido": {
+        "telefono": "0049 0176 20163265",
+        "email": "daniel.morenoparticular@gmail.com",
+        "direccion": "Feldbrunnenstr., Hamburgo, Alemania",
+        "github": "https://github.com/Aguimoda",
+        "linkedin": "http://www.linkedin.com/in/daniel-moreno-de-aguinaga-12b7a41a1"
+      }
     }
-  ],
-  "miscelaneo": [
-    "Fotógrafo entusiasta",
-    "Delegado de clase durante mi formación profesional",
-    "Amplia experiencia con sistemas Linux",
-    "Desarrollo freelance de algunas webs ('Las 3 Mulas')",
-    "Proyectos con API OpenAI: Integración en páginas web, así como la construcción de un chatbot con reconocimiento de voz, generación de respuesta por voz y de texto"
-  ]
+    ]
 }
