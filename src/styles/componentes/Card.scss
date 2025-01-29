@@ -1,6 +1,6 @@
 .card {
   width: 350px;
-  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, width 0.6s ease, height 0.6s ease, z-index 0.3s ease;
   transform-style: preserve-3d;
   cursor: pointer;
   perspective: 1000px;
@@ -46,12 +46,15 @@
     z-index: 2;
     position: absolute;
     transform: rotateY(0deg);
+
     &.is-open {
       height: 100%;
+
       & .wrapper.is-open {
         height: 100%;
       }
     }
+
     & .wrapper {
     }
   }
@@ -61,10 +64,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
     & > .wrapper {
       position: relative;
       transition: grid-template-rows ease-in-out 1s;
     }
+
     & > .wrapper.is-open {
       visibility: visible;
       transition: grid-template-rows ease-in-out 1s;
@@ -82,9 +87,8 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    transition: transform 0.6s ease-out, box-shadow 0.6s ease-in-out,
-      color 0.5s ease-in-out, background-image 0.6s ease-in-out,
-      color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    transition: transform 0.6s ease-out, box-shadow 0.6s ease-in-out, color 0.5s ease-in-out,
+      background-image 0.6s ease-in-out, color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
     background-clip: padding-box;
     background-position: center;
     background-repeat: no-repeat;
@@ -128,7 +132,7 @@
     box-shadow: inset 0 0 0 transparent, inset 0 0 0 transparent,
       inset 0 0 0 transparent, inset 0 0 0 transparent, 0 0 20px silver;
     color: white;
-    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 0px 0px 0 #000, 1px 1px 0 #000;
+    text-shadow: 0px 0px 0 #000, 0px 0px 0 #000, 1px 1px 0 #000;
 
     &.experience {
       background-image: url("../../assets/imagenExperiencia.jpg");
@@ -145,6 +149,16 @@
     &.education {
       background-image: url("../../assets/imagenEducacion.jpg");
     }
+  }
+
+  &.hovered {
+    transform: scale(1.2); /* Expande la carta al hacer hover */
+    z-index: 10; /* Lleva la carta al frente */
+    transition: transform 0.4s ease-in-out, z-index 0.4s ease-in-out;
+  }
+
+  .hovered ~ .card {
+    transform: translateX(20px); /* Desplaza cartas de la misma fila */
   }
 
   .subsection-container {

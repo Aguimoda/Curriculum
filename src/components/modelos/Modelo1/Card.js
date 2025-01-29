@@ -1,13 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../../../styles/componentes/Card.scss";
 
-const Card = ({ section, data, title }) => {
+const Card = ({
+  section,
+  data,
+  title,
+  onHover,
+  onLeave,
+  isSameRow,
+  isSameCol,
+  isHovered,
+}) => {
   const [flipped, setFlipped] = useState(false);
   const [expandedSubsection, setExpandedSubsection] = useState({});
   const [scrollHover, setScrollHover] = useState(false);
-
-  const frontRef = useRef(null);
-  const backRef = useRef(null);
   const cardRef = useRef(null);
 
   const handleFlip = (e) => {
@@ -100,129 +106,36 @@ const Card = ({ section, data, title }) => {
             </div>
           </div>
         );
-      case "educación":
-      case "education":
-      case "bildung":
-        return (
-          <div>
-            <h3>{item.titulo}</h3>
-            <p>{item.institucion}</p>
-            <p>{item.duracion}</p>
-            <div
-              className={`wrapper ${
-                expandedSubsection[index] ? "is-open" : ""
-              }`}
-            >
-              <div className="inner">
-                <p>{item.descripcion}</p>
-              </div>
-              {item.descripcion && (
-                <button
-                  className="show-more-button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleExpandSubsection(index);
-                  }}
-                >
-                  {expandedSubsection[index] ? "Mostrar menos" : "Mostrar más"}
-                </button>
-              )}
-            </div>
-          </div>
-        );
-      case "idiomas":
-      case "languages":
-      case "sprachen":
-        return (
-          <div>
-            <h3>{item.idioma}</h3>
-            <p>{item.nivel}</p>
-          </div>
-        );
-      case "lenguajes-de-programación":
-      case "programming-languages":
-      case "programmiersprachen":
-        return (
-          <div>
-            <h3>{item}</h3>
-          </div>
-        );
-      case "voluntariado":
-      case "volunteering":
-      case "freiwilligenarbeit":
-        return (
-          <div>
-            <p>{item.organizacion}</p>
-            <p>{item.duracion}</p>
-          </div>
-        );
-      case "intereses-y-proyectos":
-      case "interests-and-projects":
-      case "interessen-und-projekte":
-        return (
-          <div>
-            <p>{item}</p>
-          </div>
-        );
-      case "contacto":
-      case "contact":
-      case "kontakt":
-        return (
-          <div>
-            <p>Teléfono: {item.telefono}</p>
-            <p>Email: {item.email}</p>
-            <p>Dirección: {item.direccion}</p>
-            <p>
-              GitHub: <a href={item.github}>{item.github}</a>
-            </p>
-            <p>
-              LinkedIn: <a href={item.linkedin}>{item.linkedin}</a>
-            </p>
-          </div>
-        );
       default:
-        return null;
+        return <p>{item}</p>;
     }
   };
 
   return (
     <div
-      className={`card ${flipped ? "flipped" : ""} ${
-        scrollHover ? "hover" : ""
-      }`}
-      onClick={handleFlip}
+      className={`card ${isHovered ? "hovered" : ""}`}
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
       ref={cardRef}
+      style={{
+        transform: isHovered
+          ? "scale(1.2)"
+          : isSameRow
+          ? "translateX(20px)"
+          : isSameCol
+          ? "translateY(20px)"
+          : "none",
+        zIndex: isHovered ? 10 : 1,
+      }}
     >
       <div className="card-inner">
-        <div
-          className={`card-front ${flipped ? "" : "is-open"}`}
-          ref={frontRef}
-        >
-          <div className={`wrapper ${flipped ? "" : "is-open"}`}>
-            <h2
-              className={`inner item ${section} ${scrollHover ? "hover" : ""}`}
-            >
-              {title}
-            </h2>
-          </div>
+        <div className={`card-front ${flipped ? "" : "is-open"}`}>
+          <h2 className="inner">{title}</h2>
         </div>
-        <div
-          className={`card-back ${flipped ? "is-open" : ""}`}
-          ref={backRef}
-          onClick={(e) => {
-            if (!e.target.classList.contains("show-more-button")) {
-              handleFlip(e);
-            }
-            e.stopPropagation();
-          }}
-        >
-          <div className={`wrapper ${flipped ? "is-open" : ""}`}>
-            <div className="inner">
-              {data && data.map((item, index) => (
-                <div key={index}>{renderContent(item, index)}</div>
-              ))}
-            </div>
-          </div>
+        <div className={`card-back ${flipped ? "is-open" : ""}`}>
+          {data.map((item, index) => (
+            <div key={index}>{renderContent(item, index)}</div>
+          ))}
         </div>
       </div>
     </div>

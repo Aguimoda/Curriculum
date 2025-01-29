@@ -12,6 +12,8 @@ import SeccionSobreMi from "./SeccionSobreMi";
 
 const Modelo1 = ({ language }) => {
   const [curriculumData, setCurriculumData] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const columns = 4; // Ajusta el número de columnas según tu diseño
 
   useEffect(() => {
     const loadData = async () => {
@@ -29,7 +31,7 @@ const Modelo1 = ({ language }) => {
   }, [language]);
 
   if (!curriculumData) {
-    return <div>Loading...</div>; // O algún otro indicador de carga o error.
+    return <div>Loading...</div>; // Indicador de carga
   }
 
   const { nombre, descripcion, secciones = [] } = curriculumData;
@@ -73,22 +75,42 @@ const Modelo1 = ({ language }) => {
     }
   };
 
+  const getGridPosition = (index) => {
+    const row = Math.floor(index / columns);
+    const col = index % columns;
+    return { row, col };
+  };
+
   return (
     <div className="modelo1">
       <header className="header">
         <h1>{nombre}</h1>
       </header>
       <main className="container">
-        {secciones.map((seccion, index) => (
-          <Card
-            key={index}
-            section={seccion.titulo.toLowerCase().replace(/\s+/g, "-")}
-            title={seccion.titulo}
-            data={Array.isArray(seccion.contenido) ? seccion.contenido : [seccion.contenido]}
-          >
-            {renderSectionComponent(seccion)}
-          </Card>
-        ))}
+        {secciones.map((seccion, index) => {
+          const { row, col } = getGridPosition(index);
+          const { row: hoveredRow, col: hoveredCol } =
+            hoveredIndex !== null ? getGridPosition(hoveredIndex) : {};
+
+          const isSameRow = row === hoveredRow;
+          const isSameCol = col === hoveredCol;
+
+          return (
+            <Card
+              key={index}
+              section={seccion.titulo.toLowerCase().replace(/\s+/g, "-")}
+              title={seccion.titulo}
+              data={Array.isArray(seccion.contenido) ? seccion.contenido : [seccion.contenido]}
+              onHover={() => setHoveredIndex(index)}
+              onLeave={() => setHoveredIndex(null)}
+              isSameRow={isSameRow}
+              isSameCol={isSameCol}
+              isHovered={hoveredIndex === index}
+            >
+              {renderSectionComponent(seccion)}
+            </Card>
+          );
+        })}
       </main>
     </div>
   );

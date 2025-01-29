@@ -108,6 +108,7 @@ const DesktopControlPanel = ({
             alt="Full View Style"
             className="icon"
           />
+          Cambiar el estilo de vista
           {t("toggle_full_view_style")}
         </button>
         <div
